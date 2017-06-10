@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  atHome : boolean;
+
+  constructor() { 
+    this.atHome = true;
+  }
 
   ngOnInit() {
   }
 
+  setHome(value : boolean){
+    this.atHome = value;
+  }
+  getHome(){
+    return this.atHome;
+  }
 }

@@ -4,12 +4,13 @@
       <a class="navbar-brand">Movie Review</a>
     </div>
     <ul class="nav navbar-nav">
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/']">Home</a></li>
-      <li [routerLinkActive]="['active']"><a [routerLink]="['/category']">Category</a></li>
+      <li *ngIf="!getHome()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['./']" (click)="setHome(true)"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/']" (click)="setHome(true)">Home</a></li>
+      <li [routerLinkActive]="['active']"><a [routerLink]="['/category']" (click)="setHome(false)">Category</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/register']"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/login']" (click)="setHome(false)"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/register']" (click)="setHome(false)"><span class="glyphicon glyphicon-user"></span> Register</a></li>
     </ul>
   </div>
 </nav>
