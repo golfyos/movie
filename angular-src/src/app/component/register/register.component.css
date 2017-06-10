@@ -18,11 +18,12 @@ input[type=text],input[type=password]{
     padding-bottom: 10px;
 }
 .foot{
+    padding-top: 10px;
     padding-bottom: 10px;
      border-radius: 10px;
     size: 100%;
 }
-.btn-xl{
+.btn-default{
     padding: 10px 20px;
     font-size: 20px;
     border-radius: 10px;
@@ -30,6 +31,7 @@ input[type=text],input[type=password]{
    font-family: 'Droid Sans',sans-serif;
     font-size: 20px;
     font-weight: bold;
+    background-color: gainsboro;
 }
 .regis-form{
     font-family: 'Oswald', sans-serif;

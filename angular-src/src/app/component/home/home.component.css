@@ -13,11 +13,11 @@
     font-weight: 800;
 }
 #image{
- object-fit: cover;
-    background-size:cover;
-  background-repeat:no-repeat;
-  width:250px;
-  height:250px;
+  width : 250px;
+  height : 250px;
+  overflow: hidden;
+  margin : auto;
+  position: relative;
 }
 .image {
   opacity: 1;
