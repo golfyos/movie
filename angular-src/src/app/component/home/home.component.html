@@ -1,3 +1,40 @@
-<p>
-  home works!
-</p>
+<div class="jumbotron">
+  <p class="text-center" id="greetingTop">WELCOME TO MOVIE REVIEW WEBSITE</p>
+  <p class="text-center" id="greetingTxt">The home of fast and reliable movie reviews</p>
+</div>
+<section id="movie-grid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="text-center" id="tour-heading">LET'S GET STARTED!</h1>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-4 col-sm-6" id="latest-movie">
+       <a [routerLink]="['/category']">
+        <img id ="image" src="http://ghauri.one/ghauri/media/catalog/category/grid.jpg" alt="Avatar" class="image" style="width:100%">
+        <div class="middle">
+          <div class="text">CATEGORY</div>
+        </div>
+       </a>
+      </div>
+       <div class="col-md-4 col-sm-6" id="latest-movie">
+       <a [routerLink]="['/movie']">
+        <img id ="image" src="http://cdn1-www.comingsoon.net/assets/uploads/gallery/pirates-of-the-caribbean-dead-men-tell-no-tales/18192998_661250467417506_7754737169370615427_o.jpg" alt="Avatar" class="image" style="width:100%">
+        <div class="middle">
+          <div class="text">LATEST MOVIE</div>
+        </div>
+       </a>
+      </div>
+       <div class="col-md-4 col-sm-6" id="latest-movie">
+       <a [routerLink]="['/movie']">
+        <img id ="image" src="https://secure.netflix.com/us/boxshots/ghd/80058070.jpg" alt="Avatar" class="image" style="width:100%">
+        <div class="middle">
+          <div class="text">TRENDING</div>
+        </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
