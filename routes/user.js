@@ -1,9 +1,11 @@
 const express   = require("express");
-const router    = express.Router();
-const User      = require("../models/user");
 const bcrypt    = require('bcryptjs');
+const passport  = require('passport');
+const jwt       = require('jsonwebtoken');
+const router    = express.Router();
 
-const config = require("../config/database");
+const User      = require("../models/user");
+const config    = require("../config/database");
 
 router.get("/",(req,res)=>{
     console.log("this is /user");
@@ -19,23 +21,93 @@ router.post("/register",(req,res)=>{
         firstname: req.body.firstname,
         lastname: req.body.lastname
     });
-
-    bcrypt.genSalt(10,(err,salt)=>{
-        bcrypt.hash(user.password,salt,(err,hash)=>{
-            user.password = hash;
-            user.save((err,data)=>{
-                if(err) 
-                    res.json({success:false,msg:"Failed to Register User"})
-                else 
-                    res.json({success:true,msg:"User Registered"})
+    User.findOne({$or:[{username:user.username},{email:user.email}]},(err,data)=>{
+        if(!data){
+            bcrypt.genSalt(10,(err,salt)=>{
+                bcrypt.hash(user.password,salt,(err,hash)=>{
+                    user.password = hash;
+                    user.save((err,data)=>{
+                        if(err) 
+                            res.json({success:false,msg:"Failed to Register User"})
+                        else 
+                            res.json({success:true,msg:"User Registered"})
+                    });
+                });
             });
-        });
+        }else{
+            res.json({success:false,msg:"This Username or Email is used"});
+        }
     });
+    
 });
 
 router.post("/login",(req,res)=>{
     console.log("/user/login");
+    let username = req.body.username;
+    let password = req.body.password;
 
-})
+    User.findOne({username:username},(err,user)=>{
+        if(!user)
+            res.json({success:false,msg:"User not Found"});
+        else{
+            bcrypt.compare(password,user.password,(err,match)=>{
+                if(match){
+                    const token = jwt.sign(user, config.secret,{
+                    expiresIn : 604800  
+                    })
+                    res.json({
+                        success : true,
+                        token : "JWT " + token,
+                        user : {
+                            id : user._id,
+                            name : user.name,
+                            username : user.username,
+                            password : user.password
+
+                        }
+                    })
+
+                }else{
+                    res.json({success:false,msg:"Wrong Password"});
+                }
+            });
+        }
+    });
+
+
+    // User.getUserByUsername(username,(err,user)=>{
+    //     if(err) throw err;
+    //     if(!user){
+    //         return res.json({success:false,msg:"User not Found"});
+    //     }
+
+    //     User.comparePassword(password,user.password,(err,isMatch)=>{
+    //         if(err) throw err;
+    //         if(isMatch){
+    //             const token = jwt.sign(user, config.secret,{
+    //                 expiresIn : 604800  
+    //             })
+    //             res.json({
+    //                 success : true,
+    //                 token : "JWT " + token,
+    //                 user : {
+    //                     id : user._id,
+    //                     name : user.name,
+    //                     username : user.username,
+    //                     password : user.password
+
+    //                 }
+    //             })
+    //         }else{
+    //             return res.json({success:false,msg:"Wrong Password"});
+    //         }
+    //     })
+    // })
+});
+
+
+router.get("/logout",(req,res)=>{
+    console.log("/user/logout");
+});
 module.exports = router;
 
