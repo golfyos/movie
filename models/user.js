@@ -15,6 +15,9 @@ const User = mongoose.Schema({
     lastname: {
         type: String, required: true
     },
+    status: {
+        type : Number, default: 0
+    }
 });
 
 module.exports = mongoose.model('User',User);
