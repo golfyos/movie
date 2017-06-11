@@ -9,7 +9,7 @@
 }
 input[type=text],input[type=password],textarea{
     font-family: 'Droid Sans',sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     width : 100%;
     padding : 12px 20px;
     margin : 8px, 0;
@@ -18,8 +18,10 @@ input[type=text],input[type=password],textarea{
     box-sizing: border-box;
     border-radius: 10px;
 }
-.add-form{
-    padding : 20px;
+.edit-form{
+    margin : 10%;
+     margin-top :1%;
+     margin-bottom: 0;
 }
 .row{
     color: aliceblue;
@@ -28,19 +30,23 @@ input[type=text],input[type=password],textarea{
     padding-bottom: 10px;
 }
 .btn-default{
+     margin : 5%;
     padding: 10px 20px;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 10px;
     width:10%;
     font-family: 'Droid Sans',sans-serif;
-    font-size: 20px;
     font-weight: bold;
     background-color: gainsboro;
+    box-shadow: 0px 4px 4px 2px grey;
 }
 #cancel{
+    margin : 5%;
     background-color: red;
+    border : none;
+    box-shadow: 0px 4px 4px 2px gray;
     font-family: 'Droid Sans',sans-serif;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
 }
 .foot{
@@ -48,4 +54,15 @@ input[type=text],input[type=password],textarea{
     padding-bottom: 10px;
     border-radius: 10px;
     size: 100%;
+}
+label{
+    font-family: 'Droid Sans',sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+.header-txt{
+    font-family: 'Oswald', sans-serif;
+    font-weight: bolder;
+    font-size: 50px;
+    text-shadow: 1px 1px white;
 }

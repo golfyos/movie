@@ -1,10 +1,15 @@
 #image{
   width : 200px;
-  height : 350px;
+  height : 500px;
   overflow: hidden;
   margin : auto;
   position: relative;
 }
+
+#image:hover{
+    opacity : 0.3;
+}
+
 .image {
   opacity: 1;
   display: block;
@@ -12,17 +17,24 @@
   transition: .5s ease;
   backface-visibility: hidden;
 }
+
 .c-row{
     padding-bottom: 15px;
 }
+
 #text-label{
     background-color: gainsboro;
     font-family: 'Droid Sans',sans-serif;
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 25px;
+      margin-bottom: 3%;
 }
+
 .c-row{
     font-family: 'Oswald',sans-serif;
     font-weight: bolder;
     font-size: 50px;
+    margin-bottom: 5%;
+    text-shadow: 1px 1px white;
 }
+

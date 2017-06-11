@@ -1,5 +1,31 @@
+
 .container-fluid{
     font-family: 'Quicksand',sans-serif;
-    font-weight: 700;
+    font-weight: bold;
+    font-size: 30px;
+    height : 5%;
+}
+
+.navbar-brand{
+    color : yellow;
+    font-family: 'Yellowtail', cursive;
+    font-size : 40px;
+}
+
+.navbar-brand:hover{
+    color : yellow;
+}
+
+.navbar-form{
+    margin-top: 0;
+}
+.navbar-form input[type=text]{
+    font-family: 'Quicksand',sans-serif;
+    font-weight: bold;
     font-size: 20px;
+    width : 100%;
+}
+
+.navbar-form button[type=submit]{
+    margin-top : 2%;
 }
