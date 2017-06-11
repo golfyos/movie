@@ -1,15 +1,18 @@
 const express   = require("express");
 const router    = express.Router();
+
+
 const user      = require("./user");
 const data      = require("./data");
-// router.use("/authen",)
+const admin     = require("./admin");
 
 router.use("/user",user);
+router.use("/admin",admin);
 router.use("/data",data);
 
 router.get("/",(req,res)=>{
     console.log("this is /");
-    res.send("gg");
+    res.send("this is home page /");
 });
 
 module.exports = router;
