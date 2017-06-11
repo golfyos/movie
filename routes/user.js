@@ -62,8 +62,11 @@ router.post("/login",(req,res)=>{
                             id : user._id,
                             name : user.name,
                             username : user.username,
-                            password : user.password
-
+                            email : user.email,
+                            firstname : user.firstname,
+                            lastname : user.lastname
+                            // password : user.password
+                            
                         }
                     })
 
@@ -74,40 +77,12 @@ router.post("/login",(req,res)=>{
         }
     });
 
-
-    // User.getUserByUsername(username,(err,user)=>{
-    //     if(err) throw err;
-    //     if(!user){
-    //         return res.json({success:false,msg:"User not Found"});
-    //     }
-
-    //     User.comparePassword(password,user.password,(err,isMatch)=>{
-    //         if(err) throw err;
-    //         if(isMatch){
-    //             const token = jwt.sign(user, config.secret,{
-    //                 expiresIn : 604800  
-    //             })
-    //             res.json({
-    //                 success : true,
-    //                 token : "JWT " + token,
-    //                 user : {
-    //                     id : user._id,
-    //                     name : user.name,
-    //                     username : user.username,
-    //                     password : user.password
-
-    //                 }
-    //             })
-    //         }else{
-    //             return res.json({success:false,msg:"Wrong Password"});
-    //         }
-    //     })
-    // })
 });
 
-
-router.get("/logout",(req,res)=>{
-    console.log("/user/logout");
+router.get('/profile',passport.authenticate("jwt",{session:false}),(req,res,next)=>{
+    console.log("/user/profile");
+    res.json({user: req.user});
 });
+
 module.exports = router;
 

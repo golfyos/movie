@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const port      = 3000;
 const cors      = require("cors");
 const app       = express();
+const passport  = require('passport');
 
 const index      = require("./routes/index") ;
 const config = require('./config/database');
@@ -16,6 +17,10 @@ mongoose.connection.on('connected',()=>{
 mongoose.connection.on('error',(err)=>{
     console.log("Database error : " + err);
 });
+
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport')(passport);
 
 app.use(express.static(path.join(__dirname,'public')));
 app.use(cors());
