@@ -4,7 +4,7 @@ const Movie = mongoose.Schema({
     mid:{ type: String, unique: true },
     name:{ type: String },
     release_date:{ type: String },
-    category: { type: String },
+    category: [{type: String}],
     poster: { type: String },
     trailer: { type: String },
     description: { type : String },

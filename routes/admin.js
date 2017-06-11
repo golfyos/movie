@@ -29,8 +29,11 @@ router.post("/addmovie",(req,res)=>{
     })
 });
 
-router.post("/edit",(req,res)=>{
 
+router.post("/edit",(req,res)=>{
+    let movie = new Movie({
+
+    });
 });
 
 module.exports = router;
