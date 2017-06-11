@@ -10,8 +10,7 @@ const Movie = mongoose.Schema({
     description: { type : String },
     rating: { type : String },
     cast: { 
-        type: Array, 
-        default: []
+        type: Array 
     },
     review: [{
         name : {
@@ -23,9 +22,7 @@ const Movie = mongoose.Schema({
         dated: {
             type: String
         },
-        default: []
     }]
-
 });
 
 module.exports = mongoose.model('Movie_detail',Movie);

@@ -9,7 +9,10 @@ router.get("/",(req,res)=>{
     //res.send("data");
 });
 
+
+/* Admin Add Movie , Except review*/
 router.post("/addmovie",(req,res)=>{
+    // let cast = req.body.cast;  /* doing add caster */
     let movie = new Movie({
         mid: req.body.mid,
         name: req.body.name,
