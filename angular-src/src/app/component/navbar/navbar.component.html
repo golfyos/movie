@@ -13,7 +13,7 @@
       <div class="form-group">
         <input type="text" class="form-control" placeholder="...by Movie's name">
       </div>
-      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+      <button type="submit" class="btn btn-default"><a [routerLink]="['/movielist']"><span class="glyphicon glyphicon-search"></span></a></button>
     </form>
     <ul class="nav navbar-nav navbar-right">
       <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/login']" (click)="setHome(false)"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
