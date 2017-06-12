@@ -12,16 +12,23 @@ router.get("/",(req,res)=>{
 
 /* Admin Add Movie , Except review*/
 router.post("/addmovie",(req,res)=>{
-    // let cast = req.body.cast;  /* doing add caster */
-    let movie = new Movie({
+    let cast = req.body.cast;  
+    let cate = req.body.category;
+
+    let castArr = cast.split(",");
+    cate = cate.replace(" ","");
+    let cateArr = cate.split(",");
+
+    const movie = new Movie({
         mid: req.body.mid,
         name: req.body.name,
         release_date: req.body.rd,
-        category: req.body.category,
+        category: cateArr,
         poster: req.body.poster,
         trailer: req.body.trailer,
         description: req.body.description,
-        rating: req.body.rating
+        rating: req.body.rating,
+        cast: castArr
     });
 
     movie.save((err,data)=>{
