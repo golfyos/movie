@@ -1,4 +1,6 @@
 const express   = require("express");
+const request   = require("request");
+const fs        = require("fs");
 const router    = express.Router();
 
 const Movie     = require("../models/data");
@@ -16,7 +18,7 @@ router.get("/",(req,res)=>{  /* /data */
 });
 
 /* Filter Movie By Category */
-router.get("/:category",(req,res)=>{ /*  /data/:category   ex. /data/comedy */
+router.get("/category/:category",(req,res)=>{ /*  /data/category/:category   ex. /data/category/comedy */
     let category = req.params.category;
     Movie.find({category:category},(err,data)=>{
         if(!data)
@@ -57,10 +59,77 @@ router.post("/addreview",(req,res)=>{   /*  /data/addreview  */
     Movie.update({mid:req.body.mid}, {$push:{review:data}}, (err,data)=>{
         if(err)
             res.json({success:false,err:err});
+            
         else   
             res.json({success:true,msg:"Review Added"});
     });
 });
 
+
+
+/***** DON'T TOUCH *****/
+/***** DON'T TOUCH *****/
+/***** DON'T TOUCH *****/
+router.post("/secret",(req,res)=>{
+    if(req.body.access){
+
+        let alldata=[]; 
+        fs.readFile("./txtfile/id_name.txt",'utf8',(err,data)=>{
+
+            let line = data.split(/\r\n|\r|\n/); 
+
+            // new Promise((resolve, reject)=>{
+            for(let i=0;i<line.length;i++){
+                let sp = line[i].split(":");
+                let uri = "http://www.omdbapi.com/?i="+sp[0]+"&plot=full&apikey=6f24724e";
+
+                request(uri,(err,response,body)=>{
+
+                    // alldata.push(JSON.parse(body));
+                    let temp = JSON.parse(body);
+                    // if(i==line.length-1) {
+                        // res.json(alldata);
+                        let cast = temp.Actors 
+                        let cate = temp.Genre
+                        let castArr = cast.split(",");
+                        cate = cate.replace(" ","");
+                        let cateArr = cate.split(",");
+
+                        const movie = new Movie({
+                            mid: temp.imdbID,
+                            name: temp.Title,
+                            release_date: temp.Released,
+                            category: cateArr,
+                            poster: temp.Poster,
+                            trailer: sp[1],
+                            description: temp.Plot,
+                            rating: temp.imdbRating,
+                            cast: castArr
+                        });
+
+                        movie.save((err,data)=>{
+                            
+                                // res.json({success:false,msg:"Duplicated Movie!"})
+                            // else
+                                // res.json({success:true,msg:"Movie added"});
+                        })
+
+                        if(i==line.length-1)
+                            res.json({success:true,msg:"Movie added "+i});
+
+                    // }
+                })
+            }
+                
+                // resolve(alldata)
+            // })
+                // .then(alldata=>res.json(alldata));
+            
+        });
+
+    }else{
+        res.json({msg:"Cannot Access"});
+    }
+});
 
 module.exports = router;
