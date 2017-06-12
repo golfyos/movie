@@ -35,5 +35,11 @@ export class DataService {
       return this.http.post("http://localhost:3000/user/register",user,{headers : headers})
       .map(res => res.json());
   }
+  getAllMovie(){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.get('http://localhost:3000/data',{headers:headers})
+    .map(res => res.json());
+  }
 
 }
