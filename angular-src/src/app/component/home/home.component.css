@@ -13,10 +13,12 @@
 }
 #tour-heading{
     font-family: 'Oswald',sans-serif;
-    font-weight: bold;
-    text-shadow : 1px 1px white;
+    font-weight: bolder;
+    font-size: 50px;
+    text-shadow : 1px 1px black;
     margin-top : 3px;
     margin-bottom : 3px;
+    color: floralwhite;
 }
 #image{
   width : 200px;

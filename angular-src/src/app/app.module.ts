@@ -17,6 +17,8 @@ import { DeletemovieComponent } from './component/deletemovie/deletemovie.compon
 import { UserprofileComponent } from './component/userprofile/userprofile.component';
 import { MovielistComponent } from './component/movielist/movielist.component';
 
+import {DataService} from './services/data.service';
+
 const appRoutes : Routes = [
   {path : '' , component : HomeComponent},
   {path : 'register' , component : RegisterComponent},
@@ -51,7 +53,7 @@ const appRoutes : Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
