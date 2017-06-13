@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http,Headers} from '@angular/http';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
+import {tokenNotExpired} from 'angular2-jwt';
 
 @Injectable()
 export class DataService {
@@ -72,13 +73,6 @@ export class DataService {
     .map(res => res.json());
   }
 
-  isAdmin(user){
-   if(user.status == 0){
-     return true;
-   }
-   else return false;
-  }
-
   storeUserData(token,user){
     localStorage.setItem('id_token',token);
     localStorage.setItem('user',JSON.stringify(user));
@@ -89,6 +83,10 @@ export class DataService {
   loadToken(){
     const token = localStorage.getItem('id_token');
     this.authToken = token;
+  }
+
+   loggedIn(){
+    return tokenNotExpired();
   }
 
   logout(){
