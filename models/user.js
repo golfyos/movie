@@ -16,7 +16,7 @@ const User = mongoose.Schema({
         type: String, required: true
     },
     status: {
-        type : Number, default: 0
+        type : Number
     }
 });
 
