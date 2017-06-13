@@ -3,6 +3,7 @@ import {HomeComponent} from '../home/home.component';
 import {DataService} from '../../services/data.service';
 import {Router} from '@angular/router';
 import {FlashMessagesService} from 'angular2-flash-messages';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,9 @@ export class LoginComponent{
 
   constructor(private dataService : DataService,
               private router : Router,
-              private flashMessage:FlashMessagesService) 
+              private flashMessage:FlashMessagesService,
+              private location:Location
+              ) 
               { }
 
    onLoginSubmit(){
@@ -27,7 +30,8 @@ export class LoginComponent{
         if(data.success){
           this.dataService.storeUserData(data.token,data.user);
            this.flashMessage.show('You are now Logged In',{cssClass:'alert-success',timeout:3000});
-          this.router.navigate(['/']);
+          // this.router.navigate(['/']);
+          this.location.back();
         }else{
           this.flashMessage.show(data.msg,{cssClass:'alert-danger',timeout:3000});
           this.router.navigate(['login']);
