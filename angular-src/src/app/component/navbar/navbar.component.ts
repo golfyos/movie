@@ -10,7 +10,7 @@ import {FlashMessagesService} from 'angular2-flash-messages';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  user : Object;
   atHome : boolean;
 
   constructor(private dataService : DataService,
@@ -20,6 +20,12 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataService.getProfile().subscribe(profile =>{
+      this.user = profile.user;
+    }, err =>{
+      console.log(err);
+      return false;
+    });
   }
 
   setHome(value : boolean){
