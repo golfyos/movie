@@ -25,6 +25,8 @@ const appRoutes : Routes = [
   {path : 'register' , component : RegisterComponent},
   {path : 'login' , component : LoginComponent},
   {path : 'category' , component : CategoryComponent},
+  {path : 'movie' , component : MovieComponent},
+  {path : 'userprofile' , component : UserprofileComponent},
   {path : 'movie/:id' , component : MovieComponent},
   {path : 'profile' , component : UserprofileComponent},
   {path : 'addmovie' , component : AddmovieComponent},
