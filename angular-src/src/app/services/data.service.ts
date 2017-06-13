@@ -47,7 +47,18 @@ export class DataService {
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/user/login', user, { headers: headers })
       .map(res => res.json());
-  // console.log("Username is"+user.username+" password is "+user.password);
+  }
+  
+  storeUserData(token,user){
+    localStorage.setItem('id_token',token);
+    localStorage.setItem('user',JSON.stringify(user));
+    this.authToken = token;
+  }
+
+  logout(){
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
   }
 
 }

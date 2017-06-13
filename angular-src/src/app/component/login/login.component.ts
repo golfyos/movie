@@ -24,9 +24,15 @@ export class LoginComponent{
        password : this.password
      }
      this.dataService.authenticateUser(user).subscribe(data =>{
-        console.log(data);
+        if(data.success){
+          this.dataService.storeUserData(data.token,data.user);
+           this.flashMessage.show('You are now Logged In',{cssClass:'alert-success',timeout:3000});
+          this.router.navigate(['/']);
+        }else{
+          this.flashMessage.show(data.msg,{cssClass:'alert-danger',timeout:3000});
+          this.router.navigate(['login']);
+        }
      });
-    // this.dataService.authenticateUser(user);
    }
 
 }
