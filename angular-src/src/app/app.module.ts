@@ -32,7 +32,7 @@ const appRoutes : Routes = [
   {path : 'addmovie' , component : AddmovieComponent},
   {path : 'editmovie' , component : EditComponent},
   {path : 'deletemovie' , component : DeletemovieComponent},
-  {path : 'movielist', component : MovielistComponent}
+  {path : 'movielist/:category', component : MovielistComponent}
 ]
 
 @NgModule({
