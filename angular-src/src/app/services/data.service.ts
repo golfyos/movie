@@ -42,4 +42,12 @@ export class DataService {
     .map(res => res.json());
   }
 
+  authenticateUser(user){
+   let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/user/login', user, { headers: headers })
+      .map(res => res.json());
+  // console.log("Username is"+user.username+" password is "+user.password);
+  }
+
 }

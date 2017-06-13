@@ -2,17 +2,19 @@
   <h1 class="text-center">LOG IN</h1>
   <h2 class="text-center">Please enter your username and password below</h2>
 </div>
-<div class="loginForm" align="center">
-  <div class="roww" align="left">
-    <label>Username</label>
-    <input type="text" placeholder="Enter Your Username">
+<form (submit)="onLoginSubmit()">
+  <div class="loginForm" align="center">
+    <div class="roww" align="left">
+      <label>Username</label>
+      <input type="text" placeholder="Enter Your Username" [(ngModel)]="username" name="username">
+    </div>
+    <div class="roww" align="left">
+      <label>Password</label>
+      <input type="password" placeholder="Enter Your Password" [(ngModel)]="password" name="password">
+    </div>
+    <div class="foott">
+      <button type="submit" class="btn btn-default" id="log" value="Login">Login</button>
+      <button type="button" class="btn btn-default" id="cancel" value="Button">Cancel</button>
+    </div>
   </div>
-  <div class="roww" align="left">
-     <label>Password</label>
-    <input type="password" placeholder="Enter Your Password">
-  </div>
-  <div class="foott">
-    <button type="button" class="btn btn-default" id="log">Login</button>
-    <button type="button" class="btn btn-default" id="cancel">Cancel</button>
-  </div>
-</div>
+</form>
