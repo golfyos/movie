@@ -106,3 +106,17 @@
     </div>
   </div>
 </div>
+
+
+
+{{movieData?.name}}<br>
+{{movieData?.release_date}}<br>
+{{movieData?.category}}<br>
+{{movieData?.rating}}<br>
+{{movieData?.description}}<br>
+<span *ngFor="let ca of movieData?.cast"> {{ca}},  </span><br>
+<div *ngFor="let re of movieData?.review"> {{re}},  </div><br>
+<img src="{{movieData?.poster}}" alt="poster"><br>
+<iframe src="https://www.youtube.com/embed/zB4I68XVPzQ" width="560" height="315" allowfullscreen></iframe>
+
+
