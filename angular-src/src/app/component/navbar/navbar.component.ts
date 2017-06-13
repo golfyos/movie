@@ -11,12 +11,10 @@ import {FlashMessagesService} from 'angular2-flash-messages';
 })
 export class NavbarComponent implements OnInit {
   user : Object;
-  atHome : boolean;
 
   constructor(private dataService : DataService,
               private router : Router,
               private flashMessage:FlashMessagesService) { 
-    this.atHome = true;
   }
 
   ngOnInit() {
@@ -28,12 +26,6 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  setHome(value : boolean){
-    this.atHome = value;
-  }
-  getHome(){
-    return this.atHome;
-  }
 
   onLogoutClick(){
     this.dataService.logout();
