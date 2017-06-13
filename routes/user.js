@@ -19,7 +19,8 @@ router.post("/register",(req,res)=>{
         password: req.body.password,
         email: req.body.email,
         firstname: req.body.firstname,
-        lastname: req.body.lastname
+        lastname: req.body.lastname,
+        status: req.body.status
     });
     User.findOne({$or:[{username:user.username},{email:user.email}]},(err,data)=>{
         if(!data){
