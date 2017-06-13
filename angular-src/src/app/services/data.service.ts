@@ -90,4 +90,11 @@ export class DataService {
     localStorage.clear();
   }
 
+  addReview(comment){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('http://localhost:3000/data/addreview',comment,{headers:headers})
+      .map(res => res.json());
+  }
+
 }

@@ -115,7 +115,15 @@
 {{movieData?.rating}}<br>
 {{movieData?.description}}<br>
 <span *ngFor="let ca of movieData?.cast"> {{ca}},  </span><br>
-<div *ngFor="let re of movieData?.review"> {{re}},  </div><br>
+
+<div *ngFor="let re of movieData?.review">   
+  {{re.name}} &nbsp; {{re.dated}} <br>
+  {{re.comment}}
+  </div><br>
+  <form (submit)="onCommentSubmit()">
+    <input type="text" [(ngModel)]="comment" name="comment">
+    <input type="submit" class="btn btn-primary" value="Send">
+  </form>
 <img src="{{movieData?.poster}}" alt="poster"><br>
 <iframe src="https://www.youtube.com/embed/zB4I68XVPzQ" width="560" height="315" allowfullscreen></iframe>
 
