@@ -1,3 +1,10 @@
-<p>
-  userprofile works!
-</p>
+<div *ngIf="user">
+  <h1 class="page-header">{{user.name}}</h1>
+  <ul class="list group">
+    <li class="list-group-item">First Name : {{user.firstname}}</li>
+     <li class="list-group-item">First Name : {{user.lastname}}</li>
+      <li class="list-group-item">Email : {{user.email}}</li>
+      <li class="list-group-item" *ngIf="user.status == 1">User Type : Admin</li>
+      <li class="list-group-item" *ngIf="user.status == 0">User Type : Normal</li>
+  </ul>
+</div>

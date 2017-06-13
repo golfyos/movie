@@ -26,7 +26,7 @@ const appRoutes : Routes = [
   {path : 'login' , component : LoginComponent},
   {path : 'category' , component : CategoryComponent},
   {path : 'movie' , component : MovieComponent},
-  {path : 'profile' , component : UserprofileComponent},
+  {path : 'userprofile' , component : UserprofileComponent},
   {path : 'addmovie' , component : AddmovieComponent},
   {path : 'editmovie' , component : EditComponent},
   {path : 'deletemovie' , component : DeletemovieComponent},
