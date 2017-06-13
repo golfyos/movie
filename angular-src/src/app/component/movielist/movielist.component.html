@@ -5,8 +5,10 @@
   
   <table>
     <tr *ngFor="let m of movie">
+      <a routerLink="/movie/{{m.mid}}"> 
       <img src="{{m.poster}}" alt="poster">
-      <p>{{m.name}}</p>
+      <p>{{m.name}}</p> 
+      </a>
     </tr>
   </table>
 </div>

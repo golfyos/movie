@@ -31,6 +31,7 @@ router.get("/category/:category",(req,res)=>{ /*  /data/category/:category   ex.
 /* Get Movie By ID */
 router.get("/movie/:id",(req,res)=>{  /*  /data/movie/:id  ex. /data/movie/t123456  */
     let id = req.params.id;
+    // console.log(id);
     Movie.findOne({mid:id},(err,data)=>{
         if(!data)
             res.json({success:false,msg:"No Movie"});
@@ -91,8 +92,9 @@ router.post("/secret",(req,res)=>{
                         // res.json(alldata);
                         let cast = temp.Actors 
                         let cate = temp.Genre
+                        // cast = cast.replace(" ","");
                         let castArr = cast.split(",");
-                        cate = cate.replace(" ","");
+                        cate = cate.replace(/ /g,"");
                         let cateArr = cate.split(",");
 
                         const movie = new Movie({
