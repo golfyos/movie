@@ -18,6 +18,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/login']" (click)="setHome(false)"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/register']" (click)="setHome(false)"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+      <li ><a (click)="onLogoutClick()" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
   </div>
 </nav>
