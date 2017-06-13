@@ -65,10 +65,18 @@ export class DataService {
   
   getProfile(){
     let headers = new Headers();
+    this.loadToken();
     headers.append('Authorization',this.authToken);
     headers.append('Content-Type', 'application/json');
     return this.http.get('http://localhost:3000/user/profile',{ headers: headers})
     .map(res => res.json());
+  }
+
+  isAdmin(user){
+   if(user.status == 0){
+     return true;
+   }
+   else return false;
   }
 
   storeUserData(token,user){
@@ -81,7 +89,6 @@ export class DataService {
   loadToken(){
     const token = localStorage.getItem('id_token');
     this.authToken = token;
-
   }
 
   logout(){
