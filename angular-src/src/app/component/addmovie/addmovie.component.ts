@@ -25,6 +25,7 @@ export class AddmovieComponent implements OnInit {
   ngOnInit() {
      this.dataService.getProfile().subscribe(profile =>{
       this.user = profile.user;
+      this.dataService.user = this.user;
       console.log(this.user);
      if(!this.dataService.validateAdmin(this.user)){
        this.router.navigate(['/']);

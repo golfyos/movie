@@ -5,7 +5,7 @@
       <a class="navbar-brand">Movie's Review</a>
     </div>
     <ul class="nav navbar-nav" action="onNavLoad()">
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['']"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/']"><span class="glyphicon glyphicon-home"></span>Home</a></li>
       <li [routerLinkActive]="['active']"><a [routerLink]="['/category']"><span class="glyphicon glyphicon-list"></span>Category</a></li>
     </ul>
      <form class="navbar-form navbar-left">
@@ -16,6 +16,7 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
       <li *ngIf ="dataService.loggedIn() && dataService.grant" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/addmovie']"><span class="glyphicon glyphicon-plus-sign"></span>Add Movie</a></li>
+      <li *ngIf ="dataService.loggedIn() && dataService.grant" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/deletemovie']"><span class="glyphicon glyphicon-minus-sign"></span>Delete Movie</a></li>
       <li *ngIf ="dataService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/userprofile']"><span class="glyphicon glyphicon-user"></span>{{dataService?.user?.username}}</a></li>
       <li *ngIf ="!dataService.loggedIn()"[routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       <li *ngIf ="!dataService.loggedIn()"[routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/register']"><span class="glyphicon glyphicon-user"></span> Register</a></li>

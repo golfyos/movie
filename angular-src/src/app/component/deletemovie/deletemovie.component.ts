@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./deletemovie.component.css']
 })
 export class DeletemovieComponent implements OnInit {
-
+  user : Object;
   mid: String
 
   constructor(
@@ -17,6 +17,17 @@ export class DeletemovieComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+     this.dataService.getProfile().subscribe(profile =>{
+      this.user = profile.user;
+      this.dataService.user = this.user;
+      console.log(this.user);
+     if(!this.dataService.validateAdmin(this.user)){
+       this.router.navigate(['/']);
+     }
+    }, err =>{
+      console.log(err);
+      return false;
+    });
   }
   
   onDeleteSubmit(){

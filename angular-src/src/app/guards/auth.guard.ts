@@ -6,7 +6,6 @@ import {DataService} from '../services/data.service';
     export class AuthGuard implements CanActivate{      
         constructor(private authService:DataService,
         private router:Router){
-
         }
         canActivate(){
             if(this.authService.loggedIn()){
