@@ -40,6 +40,6 @@ export class NavbarComponent implements OnInit {
   onSubmitSearch(){
     let temp = this.search.split(" ");
     let strJoin = temp.join("+");
-    this.router.navigate(['movielist/'+ encodeURI(strJoin)]);
+    this.router.navigate(['search/'+ encodeURI(strJoin)]);
   }
 }

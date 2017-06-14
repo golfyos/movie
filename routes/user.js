@@ -8,12 +8,12 @@ const User      = require("../models/user");
 const config    = require("../config/database");
 
 router.get("/",(req,res)=>{
-    console.log("this is /user");
+    // console.log("this is /user");
     res.send("user");
 });
 
 router.post("/register",(req,res)=>{
-    console.log("/user/register");
+    // console.log("/user/register");
     let user = new User({
         username: req.body.username,
         password: req.body.password,
@@ -43,7 +43,7 @@ router.post("/register",(req,res)=>{
 });
 
 router.post("/login",(req,res)=>{
-    console.log("/user/login");
+    // console.log("/user/login");
     let username = req.body.username;
     let password = req.body.password;
 
@@ -81,7 +81,7 @@ router.post("/login",(req,res)=>{
 });
 
 router.get('/profile',passport.authenticate("jwt",{session:false}),(req,res,next)=>{
-    console.log("/user/profile");
+    // console.log("/user/profile");
     res.json({user: req.user});
 });
 

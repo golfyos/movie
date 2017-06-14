@@ -32,7 +32,7 @@ const appRoutes : Routes = [
   {path : 'addmovie' , component : AddmovieComponent, canActivate:[AuthGuard]},
   {path : 'deletemovie' , component : DeletemovieComponent, canActivate:[AuthGuard]},
   {path : 'movielist/:category', component : MovielistComponent},
-  {path : 'search', component : SearchComponent}
+  {path : 'search/:key', component : SearchComponent}
 ]
 
 @NgModule({

@@ -125,4 +125,11 @@ export class DataService {
     return this.http.post('http://localhost:3000/admin/deletemovie',id,{headers:headers})
       .map(res => res.json());
   }
+
+  searchKeyWord(key){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('http://localhost:3000/data/search',key,{headers:headers})
+      .map(res => res.json());
+  }
 }

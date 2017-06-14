@@ -66,7 +66,20 @@ router.post("/addreview",(req,res)=>{   /*  /data/addreview  */
     });
 });
 
-
+router.post("/search",(req,res)=>{
+    // console.log(req.body.key);
+    // res.json({gg:"gg"})
+    let key = req.body.key;
+    // console.log(key);
+    Movie.find({name: { "$regex": key, "$options": "i" }},(err,data)=>{
+        if(err) console.log(err)
+        else{
+            if(data)
+                res.json({success:true,data:data});
+            // console.log(data);
+        }
+    })
+});
 
 /***** DON'T TOUCH *****/
 /***** DON'T TOUCH *****/

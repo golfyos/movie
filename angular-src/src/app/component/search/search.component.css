@@ -1,0 +1,55 @@
+.btn-default{
+    margin : 2%;
+    padding: 10px 20px;
+    font-size: 30px;
+    border-radius: 10px;
+    width:20%;
+    font-family: 'Droid Sans',sans-serif;
+    font-weight: bold;
+    background-color: gainsboro;
+    box-shadow: 0px 4px 4px 2px grey;
+}
+.btn-kept{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    size: 100%;
+}
+#image{
+  width : 300px;
+  height : 500px;
+  overflow: hidden;
+  margin : auto;
+  position: relative;
+}
+
+#image:hover{
+    opacity : 0.3;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+#text-label{
+    background-color: gainsboro;
+    font-family: 'Droid Sans',sans-serif;
+    font-weight: bolder;
+    font-size: 25px;
+    height: 80px;
+      /*margin-bottom: 10%;*/
+}
+
+#c-row{
+     padding-bottom: 15px;
+    font-family: 'Oswald',sans-serif;
+    font-weight: bolder;
+    font-size: 30px;
+    margin-bottom: 5%;
+    text-shadow: 1px 1px white;
+
+}
