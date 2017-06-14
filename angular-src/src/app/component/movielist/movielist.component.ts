@@ -28,9 +28,7 @@ export class MovielistComponent implements OnInit {
   ngOnInit() {
     this.dataService.getProfile().subscribe(profile => {
       this.user = profile.user;
-      if (!this.dataService.validateAdmin(this.user)) {
-        this.dataService.grant = false;
-      } else this.dataService.grant = true;
+      this.dataService.user = this.user;
     }, err => {
       console.log(err);
       return false;

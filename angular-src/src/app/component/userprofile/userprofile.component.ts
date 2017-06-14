@@ -16,6 +16,7 @@ user : Object;
   ngOnInit() {
       this.dataService.getProfile().subscribe(profile => {
       this.user = profile.user;
+      this.dataService.user = this.user
       if(!this.dataService.validateAdmin(this.user)){
        this.dataService.grant = false;
       }else this.dataService.grant = true;
