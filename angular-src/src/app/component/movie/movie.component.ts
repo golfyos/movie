@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {DataService} from '../../services/data.service';
 import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
 
+
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -25,6 +26,8 @@ export class MovieComponent implements OnInit {
   user: Object;
   fname: String;
   lname: String;
+
+  videoUrl : SafeResourceUrl;
   ngOnInit() {
 
     this.route.params.subscribe(params => {
@@ -36,7 +39,7 @@ export class MovieComponent implements OnInit {
       if(dataJson.success){
         // console.log(dataJson.data);
         this.movieData = dataJson.data;
-        
+        this.changeUrl(dataJson.data.trailer);
         // console.log(dataJson.data.name);
         // this.movie = data.data; 
         // this.url = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/"+ dataJson.data.trailer);
@@ -71,9 +74,12 @@ export class MovieComponent implements OnInit {
     });
   }
 
-  // changeUrl(trailer) {
-  //   let url = "https://www.youtube.com/embed/"+trailer;
-  //   this.page = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  // }
+  changeUrl(trailer) {
+    console.log(trailer);
+    let url = "https://www.youtube.com/embed/"+trailer;
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    // this.page = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    console.log( this.videoUrl);
+  }
 
 }

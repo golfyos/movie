@@ -48,7 +48,6 @@ router.post("/addmovie",(req,res)=>{
 
 router.post("/deletemovie",(req,res)=>{
     let id = req.body.id;
-
     Movie.findOne({mid:id},(err,data)=>{
         if(!data) 
             res.json({success:false,msg:"No Movie to Delete"})
@@ -65,11 +64,5 @@ router.post("/deletemovie",(req,res)=>{
 
 });
 
-
-router.post("/edit",(req,res)=>{
-    let movie = new Movie({
-
-    });
-});
 
 module.exports = router;

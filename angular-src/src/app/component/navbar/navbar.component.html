@@ -16,7 +16,7 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
       <li *ngIf ="dataService.loggedIn() && dataService.grant" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/addmovie']"><span class="glyphicon glyphicon-plus-sign"></span>Add Movie</a></li>
-      <li *ngIf ="dataService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/userprofile']"><span class="glyphicon glyphicon-user"></span>{{dataService.user.username}}</a></li>
+      <li *ngIf ="dataService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/userprofile']"><span class="glyphicon glyphicon-user"></span>{{dataService?.user?.username}}</a></li>
       <li *ngIf ="!dataService.loggedIn()"[routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       <li *ngIf ="!dataService.loggedIn()"[routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/register']"><span class="glyphicon glyphicon-user"></span> Register</a></li>
       <li *ngIf ="dataService.loggedIn()"><a (click)="onLogoutClick()" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
