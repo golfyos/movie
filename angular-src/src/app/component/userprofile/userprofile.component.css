@@ -1,0 +1,33 @@
+.page-header{
+    font-family: 'Oswald',sans-serif;
+    font-weight: bolder;
+    font-size: 50px;
+    text-shadow : 1px 1px black;
+    margin-top : 3px;
+    margin-bottom : 3px;
+    color: floralwhite;
+    text-shadow: 2px 2px 2px black;
+}
+
+.list-group{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 800; 
+    color: black;
+    font-size: 33px;
+    text-align: center;
+    border: 0px solid black;
+}
+
+.profile{
+    text-align: center;
+    border: 0px solid black;
+    background-color: rgba(0,0,0,0.1);
+    margin-right : 25%;
+    margin-left : 25%;
+    margin-top : 5%;
+    box-shadow: 0 0 5px #555;
+}
+
+div .list-group-item{
+    background-color: rgba(255,255,255,0.3);
+}
