@@ -1,11 +1,11 @@
-<div *ngIf="user">
-  <h1 class="page-header">
+<div *ngIf="user" class="profile">
+  <h1 class="page-header"> Username : 
     {{user.username}}
   </h1>
-  <ul class="list-group">
-    <li class="list-group-item">{{user.firstname}}</li>
-    <li class="list-group-item">{{user.lastname}}</li>
-    <li class="list-group-item">{{user.email}}</li>
-    <!--<li class="list-group-item">{{user.status}}</li>-->
-  </ul>
+  <div class="list-group">
+    <div class="list-group-item">First Name : {{user.firstname}}</div>
+    <div class="list-group-item">Last Name : {{user.lastname}}</div>
+    <div class="list-group-item">Email : {{user.email}}</div>
+    <div class="list-group-item">Status : {{user.status}}</div>
+  </div>
 </div>
