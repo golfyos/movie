@@ -30,11 +30,10 @@ export class LoginComponent{
         if(data.success){
           this.dataService.storeUserData(data.token,data.user);
            this.flashMessage.show('You are now Logged In',{cssClass:'alert-success',timeout:3000});
-          this.router.navigate(['']);
           this.location.back();
         }else{
           this.flashMessage.show(data.msg,{cssClass:'alert-danger',timeout:3000});
-          this.location.back();
+          this.router.navigate(['login']);
         }
      });
    }
