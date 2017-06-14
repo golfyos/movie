@@ -34,4 +34,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['login']);
     return false;
   }
+
+  search: String
+  onSubmitSearch(){
+    let temp = this.search.split(" ");
+    let strJoin = temp.join("+");
+    
+    this.router.navigate(['movielist/'+ encodeURIComponent(strJoin)]);
+  }
 }
