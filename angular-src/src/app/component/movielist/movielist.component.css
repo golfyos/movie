@@ -40,15 +40,16 @@
     font-family: 'Droid Sans',sans-serif;
     font-weight: bolder;
     font-size: 25px;
-      margin-bottom: 3%;
+    height: 80px;
+      /*margin-bottom: 10%;*/
 }
 
-.c-row{
+#c-row{
      padding-bottom: 15px;
     font-family: 'Oswald',sans-serif;
     font-weight: bolder;
     font-size: 30px;
     margin-bottom: 5%;
     text-shadow: 1px 1px white;
-}
 
+}
