@@ -18,7 +18,7 @@ import { EditComponent } from './component/edit/edit.component';
 import { DeletemovieComponent } from './component/deletemovie/deletemovie.component';
 import { UserprofileComponent } from './component/userprofile/userprofile.component';
 import { MovielistComponent } from './component/movielist/movielist.component';
-
+import {AuthGuard} from './guards/auth.guard';
 import {DataService} from './services/data.service';
 
 const appRoutes : Routes = [
@@ -27,12 +27,11 @@ const appRoutes : Routes = [
   {path : 'login' , component : LoginComponent},
   {path : 'category' , component : CategoryComponent},
   {path : 'movie' , component : MovieComponent},
-  {path : 'userprofile' , component : UserprofileComponent},
+  {path : 'userprofile' , component : UserprofileComponent, canActivate:[AuthGuard]},
   {path : 'movie/:id' , component : MovieComponent},
-  {path : 'profile' , component : UserprofileComponent},
-  {path : 'addmovie' , component : AddmovieComponent},
-  {path : 'editmovie' , component : EditComponent},
-  {path : 'deletemovie' , component : DeletemovieComponent},
+  {path : 'addmovie' , component : AddmovieComponent, canActivate:[AuthGuard]},
+  {path : 'editmovie' , component : EditComponent, canActivate:[AuthGuard]},
+  {path : 'deletemovie' , component : DeletemovieComponent, canActivate:[AuthGuard]},
   {path : 'movielist/:category', component : MovielistComponent}
 ]
 
@@ -58,7 +57,7 @@ const appRoutes : Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [DataService],
+  providers: [DataService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

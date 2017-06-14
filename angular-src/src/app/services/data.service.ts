@@ -7,6 +7,7 @@ import {tokenNotExpired} from 'angular2-jwt';
 export class DataService {
   authToken : any;
   user : any;
+  grant : boolean;
   constructor(private http:Http) { }
 
   validateRegister(user){
@@ -28,6 +29,15 @@ export class DataService {
       return false;
     }
     else return true;
+  }
+
+  validateAdmin(user){
+    if(user.status === 1){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
   registerUser(user){
@@ -86,7 +96,7 @@ export class DataService {
   }
 
    loggedIn(){
-    return tokenNotExpired();
+    return tokenNotExpired("id_token");
   }
 
   logout(){
@@ -102,4 +112,17 @@ export class DataService {
       .map(res => res.json());
   }
 
+  addMovie(movie){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('http://localhost:3000/admin/addmovie',movie,{headers:headers})
+      .map(res => res.json());
+  }
+
+  deleteMovieById(id){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('http://localhost:3000/admin/deletemovie',id,{headers:headers})
+      .map(res => res.json());
+  }
 }

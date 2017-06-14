@@ -8,7 +8,7 @@ import { Router,ActivatedRoute } from '@angular/router';
   styleUrls: ['./movielist.component.css']
 })
 export class MovielistComponent implements OnInit {
-
+  user : Object;
   movie: Object;
   constructor( 
       private dataService:DataService,
@@ -19,6 +19,15 @@ export class MovielistComponent implements OnInit {
 
    cate : String
   ngOnInit() {
+      this.dataService.getProfile().subscribe(profile => {
+      this.user = profile.user;
+      if(!this.dataService.validateAdmin(this.user)){
+       this.dataService.grant = false;
+      }else this.dataService.grant = true;
+    }, err => {
+      console.log(err);
+      return false;
+    });
       this.route.params.subscribe(params => {
         this.cate = params["category"];
         // console.log(params["id"]);

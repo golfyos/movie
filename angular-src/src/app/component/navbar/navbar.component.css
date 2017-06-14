@@ -2,7 +2,7 @@
 .container-fluid{
     font-family: 'Quicksand',sans-serif;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     height : 5%;
 }
 
@@ -22,10 +22,14 @@
 .navbar-form input[type=text]{
     font-family: 'Quicksand',sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
     width : 100%;
+     margin-top : 3%;
 }
 
 .navbar-form button[type=submit]{
-    margin-top : 2%;
+    margin-top : 3%;
+}
+span{
+    margin-right:4px; 
 }
