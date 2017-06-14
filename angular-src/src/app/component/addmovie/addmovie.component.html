@@ -2,37 +2,47 @@
   <div class="text-center" id="add-mov">ADD MOVIE</div>
   <h1 class="text-center" id="intro-mov">Make sure to fill in all the information of the movie correctly</h1>
 </div>
-<div class="add-form" align="center">
-  <div class="row" align="left">
-    <label>Movie Name</label>
-    <input type="text" placeholder="Please enter the movie name here">
+<form (submit)="onSubmitMovie()">
+  <div class="add-form" align="center">
+    <div class="row" align="left">
+      <label>Movie ID (imdb ID)</label>
+      <input type="text" [(ngModel)]="id" name="id" placeholder="Please enter the movie id here - Ex. tt123456">
+    </div>
+    <div class="row" align="left">
+      <label>Movie Name</label>
+      <input type="text" [(ngModel)]="name" name="name" placeholder="Please enter the movie name here">
+    </div>
+    <div class="row" align="left">
+      <label>Released Date</label>
+      <input type="text" [(ngModel)]="rd" name="rd" placeholder="Ex. 10 May 1999">
+    </div>
+    <div class="row" align="left">
+      <label>Movie Poster URL</label>
+      <input type="text" [(ngModel)]="poster" name="poster" placeholder="Please enter the URL of the movie poster here">
+    </div>
+    <div class="row" align="left">
+      <label>Movie Trailer URL</label>
+      <input type="text" [(ngModel)]="trailer" name="trailer" placeholder="Please enter Trailer Youtube's URL of the movie">
+    </div>
+    <div class="row" align="left">
+      <label>Description</label>
+      <textarea [(ngModel)]="description" name="description" placeholder="Please enter the movie description here"></textarea>
+    </div>
+    <div class="row" align="left">
+      <label>Casts and Crews</label>
+      <textarea [(ngModel)]="cast" name="cast" placeholder="(use ',' if more than one) Ex. John Doe,Doe Doe"></textarea>
+    </div>
+    <div class="row" align="left">
+      <label>Category</label>
+      <input type="text" [(ngModel)]="category" name="category" placeholder="(use ',' if more than one) Ex. Drama,Action">
+    </div>
+    <div class="row" align="left">
+      <label>Global Ratings</label>
+      <input type="text" [(ngModel)]="rating" name="rating" placeholder="Please enter the URL of the movie trailer here">
+    </div>
+    <div class="foot">
+      <button type="submit" class="btn btn-default" id="add">Add</button>
+      <button type="reset" class="btn btn-default" id="cancel">Reset</button>
+    </div>
   </div>
-  <div class="row" align="left">
-    <label>Movie Poster URL</label>
-    <input type="text" placeholder="Please enter the URL of the movie poster here">
-  </div>
-  <div class="row" align="left">
-    <label>Movie Trailer URL</label>
-    <input type="text" placeholder="Please enter the URL of the movie trailer here">
-  </div>
-  <div class="row" align="left">
-    <label>Description</label>
-    <textarea placeholder="Please enter the movie description here"></textarea>
-  </div>
-  <div class="row" align="left">
-    <label>Casts and Crews</label>
-    <textarea placeholder="Please enter the casts and crews of the movie here"></textarea>
-  </div>
-  <div class="row" align="left">
-    <label>Category</label>
-    <input type="text" placeholder="Please enter the category of the movie here(use ',' if more than one category)">
-  </div>
-   <div class="row" align="left">
-    <label>Global Ratings</label>
-    <input type="text" placeholder="Please enter the URL of the movie trailer here">
-  </div>
-  <div class="foot">
-    <button type="button" class="btn btn-default" id="add">Add</button>
-    <button type="button" class="btn btn-default" id="cancel">Cancel</button>
-  </div>
-</div>
+</form>

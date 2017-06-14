@@ -102,4 +102,17 @@ export class DataService {
       .map(res => res.json());
   }
 
+  addMovie(movie){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('http://localhost:3000/admin/addmovie',movie,{headers:headers})
+      .map(res => res.json());
+  }
+
+  deleteMovieById(id){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('http://localhost:3000/admin/deletemovie',id,{headers:headers})
+      .map(res => res.json());
+  }
 }

@@ -67,6 +67,7 @@ export class MovieComponent implements OnInit {
     
     this.dataService.addReview(d).subscribe(resJson=>{
       console.log(resJson.success);
+      this.router.navigate(['/movie/'+this.mid]);
     });
   }
 
