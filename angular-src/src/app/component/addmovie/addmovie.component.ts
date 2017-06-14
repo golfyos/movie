@@ -9,8 +9,19 @@ import {Router} from '@angular/router';
 })
 export class AddmovieComponent implements OnInit {
   user : Object;
-  constructor(private dataService : DataService,private router : Router) { }
-  
+  id: String
+  name: String
+  poster: String
+  trailer: String
+  description: String
+  cast: String
+  category: String
+  rating: String
+  rd: String
+  constructor(
+    private dataService: DataService,
+    private router: Router) { }
+
   ngOnInit() {
      this.dataService.getProfile().subscribe(profile =>{
       this.user = profile.user;
@@ -21,6 +32,24 @@ export class AddmovieComponent implements OnInit {
     }, err =>{
       console.log(err);
       return false;
+    });
+  }
+
+  onSubmitMovie(){
+    const movie = {
+      mid: this.id,
+      name: this.name,
+      poster: this.poster,
+      trailer: this.trailer, 
+      description: this.description,
+      cast: this.cast,
+      rd: this.rd,
+      category: this.category,
+      rating: this.rating
+    }
+
+    this.dataService.addMovie(movie).subscribe(data => {
+        console.log(data.msg)
     });
   }
 

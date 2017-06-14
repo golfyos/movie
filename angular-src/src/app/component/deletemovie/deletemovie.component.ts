@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deletemovie',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeletemovieComponent implements OnInit {
 
-  constructor() { }
+  mid: String
+
+  constructor(
+    private dataService: DataService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
   }
+  
+  onDeleteSubmit(){
+    const id = {
+      id: this.mid
+    }
+
+    this.dataService.deleteMovieById(id).subscribe(data => {
+        if(data.success)  console.log(data.msg)
+        else console.log(data.msg)
+    });
+  }
+
+  
 
 }

@@ -1,3 +1,8 @@
 <p>
   deletemovie works!
 </p>
+
+<form (submit)="onDeleteSubmit()" >
+     <input type="text" [(ngModel)]="mid" name="mid" >
+     <input type="submit" value="Submit">
+</form>
