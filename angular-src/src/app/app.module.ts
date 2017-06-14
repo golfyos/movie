@@ -14,12 +14,12 @@ import { RegisterComponent } from './component/register/register.component';
 import { CategoryComponent } from './component/category/category.component';
 import { MovieComponent } from './component/movie/movie.component';
 import { AddmovieComponent } from './component/addmovie/addmovie.component';
-import { EditComponent } from './component/edit/edit.component';
 import { DeletemovieComponent } from './component/deletemovie/deletemovie.component';
 import { UserprofileComponent } from './component/userprofile/userprofile.component';
 import { MovielistComponent } from './component/movielist/movielist.component';
 import {AuthGuard} from './guards/auth.guard';
 import {DataService} from './services/data.service';
+import { SearchComponent } from './component/search/search.component';
 
 const appRoutes : Routes = [
   {path : '' , component : HomeComponent},
@@ -30,9 +30,9 @@ const appRoutes : Routes = [
   {path : 'userprofile' , component : UserprofileComponent, canActivate:[AuthGuard]},
   {path : 'movie/:id' , component : MovieComponent},
   {path : 'addmovie' , component : AddmovieComponent, canActivate:[AuthGuard]},
-  {path : 'editmovie' , component : EditComponent, canActivate:[AuthGuard]},
   {path : 'deletemovie' , component : DeletemovieComponent, canActivate:[AuthGuard]},
-  {path : 'movielist/:category', component : MovielistComponent}
+  {path : 'movielist/:category', component : MovielistComponent},
+  {path : 'search', component : SearchComponent}
 ]
 
 @NgModule({
@@ -45,10 +45,10 @@ const appRoutes : Routes = [
     CategoryComponent,
     MovieComponent,
     AddmovieComponent,
-    EditComponent,
     DeletemovieComponent,
     UserprofileComponent,
-    MovielistComponent
+    MovielistComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
