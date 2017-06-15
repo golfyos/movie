@@ -14,7 +14,7 @@ input[type=text]{
 .btn-default{
     font-size: 20px;
     border-radius: 10px;
-    width:10%;
+    width:12%;
     font-family: 'Droid Sans',sans-serif;
     font-weight: bold;
     background-color: gainsboro;
@@ -25,4 +25,19 @@ input[type=text]{
     font-weight: 800;
     font-size: 70px;
     text-shadow: 1px 1px white;
+}
+.modal-title{
+    font-family :'Droid Sans',sans-serif;
+    font-size: 20px;
+    width : 75%;
+}
+#confirmBtn{
+    margin-top : 5%;
+    margin-right : 5%;
+    background-color:lawngreen;
+}
+#cancelBtn{
+    margin-top : 5%;
+    margin-right : 5%;
+    background-color:red;
 }

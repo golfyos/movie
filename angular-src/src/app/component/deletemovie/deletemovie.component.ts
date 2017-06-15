@@ -46,6 +46,11 @@ export class DeletemovieComponent implements OnInit {
     });
   }
 
-  
+  checkInput(){
+    if(this.mid == ""){
+      this.flashMessage.show("Please Enter the movie ID before proceeding",{css:'alert-danger',timeout:3000});
+      return false;
+    }else return true;
+  }
 
 }

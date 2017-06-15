@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http,Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {tokenNotExpired} from 'angular2-jwt';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class DataService {
@@ -10,7 +11,7 @@ export class DataService {
   movie : any;
   grant : boolean;
   category : String;
-  constructor(private http:Http) { }
+  constructor(private http:Http,private router:Router) { }
 
   validateRegister(user){
     if(user.firstname == undefined || user.lastname == undefined ||
@@ -119,6 +120,7 @@ export class DataService {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
   addReview(comment){
