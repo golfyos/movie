@@ -1,7 +1,7 @@
 <div class="all">
-  <h1 class="text-center">Your Searched for ' {{key}} '</h1>
-  <h3 class="text-center" *ngIf="result > 1">{{result}} results</h3>
-  <h3 class="text-center" *ngIf="result <= 1">{{result}} result</h3>
+  <h1 class="text-center" id="searchKey">Your Searched for ' {{key}} '</h1>
+  <h3 id="result" class="text-center" *ngIf="result > 1">{{result}} results</h3>
+  <h3 id="result" class="text-center" *ngIf="result <= 1">{{result}} result</h3>
   <br>
   <br>
   <!--<div class="btn-kept" align="center">
