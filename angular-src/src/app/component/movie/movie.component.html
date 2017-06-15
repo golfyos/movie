@@ -3,7 +3,11 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-3">
-    <div class="text-center" id="rating-label">RATINGS : {{movieData?.rating}}</div>
+    <div class="text-center" id="rating-label">
+      <img width="50" height="50" src="https://cdn0.iconfinder.com/data/icons/IS_Christmas/512/christmas_star.png"/>
+      RATINGS : {{movieData?.rating}}
+      <img width="50" height="50" src="https://cdn0.iconfinder.com/data/icons/IS_Christmas/512/christmas_star.png"/>
+      </div>
     <img id="image" src="{{movieData?.poster}}"
       alt="Avatar" class="image" style="width:100%">
     <div class="text-center">
@@ -29,6 +33,7 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-11">
+    <img style="float:left" width="50" height="50" src="http://www.freeiconspng.com/uploads/book-icon--awesome-book-icon--softiconsm-15.png"/>
     <h2 id="hdline">STORYLINE</h2>
     <p id="linetxt">{{movieData?.description}}</p>
   </div>
@@ -36,6 +41,7 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-11">
+    <img style="float:left" width="50" height="50" src="https://cdn1.iconfinder.com/data/icons/pretty-office-part-13-reflection-style/512/users.png"/>
     <h2 id="hdline">CASTS</h2>
     <p *ngFor="let ca of movieData?.cast" id="linetxt">{{ca}} </p>
   </div>
@@ -43,6 +49,7 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-11">
+    <img style="float:left" width="50" height="50" src="http://saniflo-engineers-london.co.uk/wp-content/uploads/2014/01/Reviews.png"/>
     <h2 id="hdline">REVIEW</h2>
     <div class="forReview">
     <form (submit)="onCommentSubmit()">
