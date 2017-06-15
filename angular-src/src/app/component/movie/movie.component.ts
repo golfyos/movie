@@ -48,7 +48,12 @@ export class MovieComponent implements OnInit {
       if (dataJson.success) {
         // console.log(dataJson.data);
         this.movieData = dataJson.data;
-        this.changeUrl(dataJson.data.trailer);
+        // this.changeUrl(dataJson.data.trailer);
+
+        let url = "https://www.youtube.com/embed/" + dataJson.data.trailer;
+        this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+        console.log(this.videoUrl);
+
         // console.log(dataJson.data.name);
         // this.movie = data.data; 
         // this.url = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/"+ dataJson.data.trailer);
@@ -63,7 +68,7 @@ export class MovieComponent implements OnInit {
       this.lname = profile.user.lastname;
       console.log(this.fname + "  " + this.lname);
     }, err => {
-      console.log(err + "ggwp");
+      console.log(err + " ggwp");
       return false;
     });
 

@@ -57,7 +57,9 @@ export class AddmovieComponent implements OnInit {
     }
       this.dataService.addMovie(movie).subscribe(data => {
       this.flashMessage.show(movie.name + " is added", { cssClass: 'alert-success', timeout: 2000 });
+
       this.router.navigate(['/movie/' + movie.mid]);
+      
       });
   }
 
