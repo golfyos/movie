@@ -46,8 +46,9 @@
     <h3 id="scdline">Don't forget to login in order to write down the review!</h3>
     <div class="forReview">
     <form (submit)="onCommentSubmit()">
-      <input type="text" placeholder="Write down your review here" [(ngModel)]="comment" name="comment"><br>
-      <input type="submit" class="btn btn-default" value ="Send">
+      <input *ngIf="user" type="text" placeholder="Write down your review here" [(ngModel)]="comment" name="comment"><br>
+      <input disabled *ngIf="!user" type="text" placeholder="Please Login" name="comment"><br>
+      <input [disabled]="!user" type="submit" class="btn btn-default" value ="Send">
     </form>
     </div>
   </div>
