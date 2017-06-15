@@ -20,7 +20,7 @@
 <div *ngFor="let m of movie" class="hi">
   <div class="col-md-3 col-sm-6" id="c-row">
     <a routerLink="/movie/{{m.mid}}"> 
-        <img id="image" src="{{m.poster}}" alt="poster">
+        <img id="image" src="{{m.poster}}" alt="poster" class="image" style="width:100%">
         </a>
     <div class="text-center" id="text-label">{{m.name}}</div>
   </div>
