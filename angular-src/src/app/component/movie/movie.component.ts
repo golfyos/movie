@@ -65,13 +65,14 @@ export class MovieComponent implements OnInit {
     });
 
 
-    this.dataService.getProfile().subscribe(profile => {
+      this.dataService.getProfile().subscribe(profile => {
       this.user = profile.user;
-      this.fname = profile.user.firstname;
-      this.lname = profile.user.lastname;
-      console.log(this.fname + "  " + this.lname);
+      this.dataService.user = profile.user;
+      if(!this.dataService.validateAdmin(this.user)){
+       this.dataService.grant = false;
+      }else this.dataService.grant = true;
     }, err => {
-      console.log(err + " ggwp");
+      console.log(err);
       return false;
     });
 
