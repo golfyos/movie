@@ -1,4 +1,5 @@
-<h1 class="text-center" id="mov-head">{{movieData?.name}}</h1>
+<div class="all">
+  <h1 class="text-center" id="mov-head">{{movieData?.name}}</h1>
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-3">
@@ -43,7 +44,6 @@
   <div class="col-md-1"></div>
   <div class="col-md-11">
     <h2 id="hdline">REVIEW</h2>
-    <h3 id="scdline">Don't forget to login in order to write down the review!</h3>
     <div class="forReview">
     <form (submit)="onCommentSubmit()">
       <input *ngIf="user" type="text" placeholder="Write down your review here" [(ngModel)]="comment" name="comment"><br>
@@ -84,3 +84,5 @@
 <!--<iframe [src]="videoUrl" width="560" height="315" allowfullscreen></iframe>-->
 
 
+
+</div>

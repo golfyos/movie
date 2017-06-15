@@ -6,7 +6,7 @@ import {FlashMessagesService} from 'angular2-flash-messages';
 @Component({
   selector: 'app-deletemovie',
   templateUrl: './deletemovie.component.html',
-  styleUrls: ['./deletemovie.component.css']
+  styleUrls: ['./deletemovie.component.css'],
 })
 export class DeletemovieComponent implements OnInit {
   user : Object;
@@ -22,7 +22,6 @@ export class DeletemovieComponent implements OnInit {
      this.dataService.getProfile().subscribe(profile =>{
       this.user = profile.user;
       this.dataService.user = this.user;
-      console.log(this.user);
      if(!this.dataService.validateAdmin(this.user)){
        this.router.navigate(['/']);
      }
@@ -45,12 +44,4 @@ export class DeletemovieComponent implements OnInit {
         else this.flashMessage.show(data.msg,{cssClass:'alert-danger',timeout:3000})
     });
   }
-
-  checkInput(){
-    if(this.mid == ""){
-      this.flashMessage.show("Please Enter the movie ID before proceeding",{css:'alert-danger',timeout:3000});
-      return false;
-    }else return true;
-  }
-
 }

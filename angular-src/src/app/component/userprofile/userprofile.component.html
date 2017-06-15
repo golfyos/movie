@@ -1,4 +1,5 @@
-<div *ngIf="user" class="profile">
+<div class="all">
+  <div *ngIf="user" class="profile">
   <h1 class="page-header"> Username : 
     {{user.username}}
   </h1>
@@ -9,4 +10,5 @@
     <div *ngIf="user.status == 1"class="list-group-item">Status : Admin</div>
     <div *ngIf="user.status == 0"class="list-group-item">Status : User</div>
   </div>
+</div>
 </div>
