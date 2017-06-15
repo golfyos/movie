@@ -23,7 +23,7 @@ router.post("/addmovie",(req,res)=>{
     }
 
     let trailer = req.body.trailer;
-    let link = trailer.split("-");
+    let link = trailer.split("=");
 
     let da = req.body.rd.split(" ");
     let intDate = parseInt(da[0])+1
