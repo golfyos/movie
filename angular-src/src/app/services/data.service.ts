@@ -7,7 +7,9 @@ import {tokenNotExpired} from 'angular2-jwt';
 export class DataService {
   authToken : any;
   user : any;
+  movie : any;
   grant : boolean;
+  category : String;
   constructor(private http:Http) { }
 
   validateRegister(user){
@@ -38,6 +40,20 @@ export class DataService {
     else{
       return false;
     }
+  }
+
+  validateMovie(movie){
+    if(movie.mid == undefined || movie.name == undefined
+    || movie.poster == undefined || movie.trailer == undefined
+    || movie.description == undefined || movie.cast == undefined
+    || movie.rd == undefined || movie.category == undefined
+    || movie.rating == undefined){
+        return false;
+    }else return true;
+  }
+
+  setCat(category){
+    this.category = category;
   }
 
   registerUser(user){

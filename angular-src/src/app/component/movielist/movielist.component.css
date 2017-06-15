@@ -36,3 +36,17 @@
     text-shadow: 1px 1px white;
 
 }
+
+#head{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 800;
+    font-size: 70px;
+    text-shadow: 1px 1px white;
+}
+#headtwo{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 800;
+    font-size: 45px;
+    text-shadow: 1px 1px white;
+    margin-bottom: 1%;
+}

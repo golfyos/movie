@@ -1,5 +1,5 @@
-<h1 class="text-center">MOVIE LIST PAGE</h1>
-<h2 class="text-center">This is a test page going to MOVIE page</h2>
+<h1 class="text-center" id="head">MOVIE LIST PAGE</h1>
+<h2 class="text-center" id="headtwo">List of {{dataService?.category}} Movies</h2>
 <div *ngFor="let m of movie" class="hi">
   <div class="col-md-3 col-sm-6" id="c-row">
     <a routerLink="/movie/{{m.mid}}"> 

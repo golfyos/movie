@@ -1,8 +1,7 @@
-<p>
-  deletemovie works!
-</p>
-
-<form (submit)="onDeleteSubmit()" >
-     <input type="text" [(ngModel)]="mid" name="mid" >
-     <input type="submit" value="Submit">
+<h1 class="text-center" id="head">DELETE MOVIE</h1>
+<div align="center">
+  <form (submit)="onDeleteSubmit()" >
+     <input type="text" [(ngModel)]="mid" name="mid" placeholder="Enter the ID of movie you want to delete"><br>
+     <input type="submit" value="Submit"class="btn btn-default">
 </form>
+</div>

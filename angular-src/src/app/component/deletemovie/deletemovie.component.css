@@ -1,0 +1,28 @@
+input[type=text]{
+    font-family: 'Droid Sans',sans-serif;
+    font-size: 20px;
+    width : 75%;
+    padding : 12px 20px;
+    margin : 8px, 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border;
+    border-radius: 10px;
+    color: black;
+    margin-bottom: 1%;
+}
+.btn-default{
+    font-size: 20px;
+    border-radius: 10px;
+    width:10%;
+    font-family: 'Droid Sans',sans-serif;
+    font-weight: bold;
+    background-color: gainsboro;
+    box-shadow: 0px 4px 4px 2px grey;
+}
+#head{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 800;
+    font-size: 70px;
+    text-shadow: 1px 1px white;
+}
