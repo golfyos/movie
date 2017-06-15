@@ -50,7 +50,7 @@ image{
     font-weight: bolder;
     font-size: 25px;
 } 
-textarea{
+input[type=text]{
     font-family: 'Droid Sans',sans-serif;
     font-size: 20px;
     width : 75%;
@@ -61,6 +61,7 @@ textarea{
     box-sizing: border;
     border-radius: 10px;
     color: black;
+    margin-bottom: 1%;
 }
 .btn-default{
     font-size: 20px;
