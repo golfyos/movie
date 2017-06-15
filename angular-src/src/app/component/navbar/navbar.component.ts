@@ -3,6 +3,7 @@ import { HomeComponent } from '../home/home.component';
 import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,8 @@ export class NavbarComponent implements OnInit {
   user: Object;
   constructor(private dataService: DataService,
     private router: Router,
-    private flashMessage: FlashMessagesService) {
+    private flashMessage: FlashMessagesService,
+    private location:Location) {
   }
 
   ngOnInit() {
@@ -32,7 +34,8 @@ export class NavbarComponent implements OnInit {
   onLogoutClick() {
     this.dataService.logout();
     this.flashMessage.show('You are logged out', { cssClass: 'alert-success', timeout: 3000 });
-    this.router.navigate(['login']);
+    // this.location.back();
+    // this.router.navigate(['login']);
     return false;
   }
 
