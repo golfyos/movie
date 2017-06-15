@@ -21,7 +21,7 @@
       <li *ngIf ="dataService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/userprofile']"><span class="glyphicon glyphicon-user"></span>{{dataService?.user?.username}}</a></li>
       <li *ngIf ="!dataService.loggedIn()"[routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       <li *ngIf ="!dataService.loggedIn()"[routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/register']"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-      <li *ngIf ="dataService.loggedIn()"><a (click)="onLogoutClick()" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li *ngIf ="dataService.loggedIn()"><a (click)="onLogoutClick()" href=""><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
   </div>
 </nav>
