@@ -9,6 +9,7 @@ import {ElementRef} from '@angular/core';
   styleUrls: ['./movielist.component.css']
 })
 export class MovielistComponent implements OnInit {
+  category : String;
   count: number;
   round: number;
   list: String;
@@ -57,6 +58,7 @@ export class MovielistComponent implements OnInit {
     }
     else {
       // console.log(this.cate);
+      this.dataService.category = this.cate;
       this.dataService.getCategoryMovie(this.cate).subscribe(data => {
         if (data) {
           this.movie = data.data;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
+import {FlashMessagesService} from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-deletemovie',
@@ -13,7 +14,8 @@ export class DeletemovieComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private router: Router
+    private router: Router,
+    private flashMessage : FlashMessagesService
     ) { }
 
   ngOnInit() {
@@ -36,8 +38,10 @@ export class DeletemovieComponent implements OnInit {
     }
 
     this.dataService.deleteMovieById(id).subscribe(data => {
-        if(data.success)  console.log(data.msg)
-        else console.log(data.msg)
+        if(data.success){
+          this.flashMessage.show(data.msg,{cssClass:'alert-success',timeout:3000})
+        }
+        else this.flashMessage.show(data.msg,{cssClass:'alert-danger',timeout:3000})
     });
   }
 

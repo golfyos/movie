@@ -8,6 +8,7 @@ export class DataService {
   authToken : any;
   user : any;
   grant : boolean;
+  category : String;
   constructor(private http:Http) { }
 
   validateRegister(user){
@@ -38,6 +39,10 @@ export class DataService {
     else{
       return false;
     }
+  }
+
+  setCat(category){
+    this.category = category;
   }
 
   registerUser(user){
