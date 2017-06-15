@@ -34,6 +34,7 @@ export class MovieComponent implements OnInit {
     this.dataService.getProfile().subscribe(profile => {
       this.user = profile.user;
       this.dataService.user = this.user;
+      console.log(this.user);
       if (!this.dataService.validateAdmin(this.user)) {
         this.dataService.grant = false;
       } else this.dataService.grant = true;
@@ -79,7 +80,9 @@ export class MovieComponent implements OnInit {
   }
 
   onCommentSubmit(name) {
-    let u = this.user;
+    console.log(this.user);
+    var u : Object;
+    u = this.user;
     const d = {
       mid: this.mid,
       name: this.fname + "  " + this.lname,
