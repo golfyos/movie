@@ -25,10 +25,14 @@ router.post("/addmovie",(req,res)=>{
     let trailer = req.body.trailer;
     let link = trailer.split("-");
 
+    let da = req.body.rd.split(" ");
+    let intDate = parseInt(da[0])+1
+    let strDate = intDate + " " + da[1] + " " +da[2];
+
     const movie = new Movie({
         mid: req.body.mid,
         name: req.body.name,
-        release_date: req.body.rd,
+        release_date: new Date(strDate),
         category: cateArr,
         poster: req.body.poster,
         trailer: link[1],

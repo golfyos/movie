@@ -54,7 +54,7 @@
   <div class="col-md-1"></div>
   <div class="col-md-11">
     <div class="panel panel-default" id="revi">
-      <div class="panel-heading" id="rev-name">{{re.name}} &nbsp; {{re.dated}}</div>
+      <div class="panel-heading" id="rev-name">{{re.name}} &nbsp; {{re.dated | date:'dd/MM/yy HH:mm:ss'}}</div>
       <div class="panel-body" id="rev">{{re.comment}}</div>
     </div>
   </div>

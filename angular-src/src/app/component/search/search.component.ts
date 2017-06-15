@@ -41,7 +41,7 @@ export class SearchComponent implements OnInit {
       this.dataService.searchKeyWord(word).subscribe(data => {
         // console.log(data.success);
           if (data.success) {
-            console.log(data.data);
+            // console.log(data.data);
             this.movie = data.data;
           }
       });

@@ -54,7 +54,7 @@ router.post("/addreview",(req,res)=>{   /*  /data/addreview  */
     let data = {
         name: req.body.name,
         comment: req.body.comment,
-        dated: strDate
+        dated: new Date(strDate)
     }
 
     Movie.update({mid:req.body.mid}, {$push:{review:data}}, (err,data)=>{
@@ -79,6 +79,23 @@ router.post("/search",(req,res)=>{
             // console.log(data);
         }
     })
+});
+
+
+router.get("/sort/rate",(req,res)=>{
+    Movie.find({})
+        .sort({rating:'descending'})
+        .exec((err,data)=>{
+            res.json(data);
+        });
+});
+
+router.get("/sort/date",(req,res)=>{
+    Movie.find({})
+        .sort({release_date:'descending'})
+        .exec((err,data)=>{
+            res.json(data);
+        });
 });
 
 /***** DON'T TOUCH *****/
@@ -110,10 +127,14 @@ router.post("/secret",(req,res)=>{
                         cate = cate.replace(/ /g,"");
                         let cateArr = cate.split(",");
 
+                        let da = temp.Released.split(" ");
+                        let intDate = parseInt(da[0])+1
+                        let strDate = intDate + " " + da[1] + " " +da[2];
+
                         const movie = new Movie({
                             mid: temp.imdbID,
                             name: temp.Title,
-                            release_date: temp.Released,
+                            release_date: new Date(strDate),
                             category: cateArr,
                             poster: temp.Poster,
                             trailer: sp[1],

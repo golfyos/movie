@@ -3,7 +3,7 @@ const Movie = mongoose.Schema({
 
     mid:{ type: String, unique: true },
     name:{ type: String },
-    release_date:{ type: String },
+    release_date:{ type: Date },
     category: [{type: String}],
     poster: { type: String },
     trailer: { type: String },
@@ -20,7 +20,7 @@ const Movie = mongoose.Schema({
             type: String
         },
         dated: {
-            type: String
+            type: Date
         },
     }]
 });
