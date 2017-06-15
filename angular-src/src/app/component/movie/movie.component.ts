@@ -58,6 +58,7 @@ export class MovieComponent implements OnInit {
         // this.movie = data.data; 
         // this.url = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/"+ dataJson.data.trailer);
         // console.log(this.url);
+
       }
     });
 

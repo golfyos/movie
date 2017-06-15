@@ -36,6 +36,7 @@ export class NavbarComponent implements OnInit {
     this.flashMessage.show('You are logged out', { cssClass: 'alert-success', timeout: 3000 });
     // this.location.back();
     // this.router.navigate(['login']);
+    window.location.reload();
     return false;
   }
 
