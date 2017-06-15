@@ -53,6 +53,7 @@ export class MovielistComponent implements OnInit {
         if (data) {
           this.movie = data.data;
           // console.log(data)
+          this.cate = this.cate=="latest"?"Latest":"Trend";
         }
       });
     }
