@@ -86,7 +86,10 @@ router.get("/sort/rate",(req,res)=>{
     Movie.find({})
         .sort({rating:'descending'})
         .exec((err,data)=>{
-            res.json(data);
+            if(data)
+                res.json({success:true,data:data});
+            else
+                res.json({success:false});
         });
 });
 
@@ -94,7 +97,10 @@ router.get("/sort/date",(req,res)=>{
     Movie.find({})
         .sort({release_date:'descending'})
         .exec((err,data)=>{
-            res.json(data);
+            if(data)
+                res.json({success:true,data:data});
+            else
+                res.json({success:false});
         });
 });
 

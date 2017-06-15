@@ -132,4 +132,18 @@ export class DataService {
     return this.http.post('http://localhost:3000/data/search',key,{headers:headers})
       .map(res => res.json());
   }
+
+  sortMovie(cate){
+    if(cate == "latest"){
+      let headers = new Headers();
+      headers.append('Content-Type','application/json');
+      return this.http.get('http://localhost:3000/data/sort/date',{headers:headers})
+        .map(res => res.json());
+    }else{
+      let headers = new Headers();
+      headers.append('Content-Type','application/json');
+      return this.http.get('http://localhost:3000/data/sort/rate',{headers:headers})
+        .map(res => res.json());
+    }
+  }
 }

@@ -6,7 +6,7 @@
     <img id="image" src="{{movieData?.poster}}"
       alt="Avatar" class="image" style="width:100%">
     <div class="text-center">
-      <p id="rel-date">{{movieData?.release_date}}</p>
+      <p id="rel-date">{{movieData?.release_date | date:'dd/MM/yy'}}</p>
       <p id="cat">{{movieData?.category}}</p>
     </div>
   </div>

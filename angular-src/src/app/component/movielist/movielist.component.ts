@@ -47,7 +47,14 @@ export class MovielistComponent implements OnInit {
         }
       });
     }
-
+    else if(this.cate =="latest"|| this.cate=="trend"){
+      this.dataService.sortMovie(this.cate).subscribe(data => {
+        if (data) {
+          this.movie = data.data;
+          // console.log(data)
+        }
+      });
+    }
     else {
       // console.log(this.cate);
       this.dataService.getCategoryMovie(this.cate).subscribe(data => {
