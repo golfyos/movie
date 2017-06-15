@@ -120,7 +120,7 @@ export class DataService {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
-    this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
   }
 
   addReview(comment){
