@@ -51,6 +51,7 @@ image{
     font-family: 'Droid Sans',sans-serif;
     font-weight: bolder;
     font-size: 25px;
+    padding-right: 4em;
 } 
 input[type=text]{
     font-family: 'Droid Sans',sans-serif;
