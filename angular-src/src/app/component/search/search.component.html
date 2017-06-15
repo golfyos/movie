@@ -1,5 +1,8 @@
-<h1 class="text-center">MOVIE LIST PAGE</h1>
-<h2 class="text-center">This is a test page going to MOVIE page</h2>
+<h1 class="text-center">Your Searched for  ' {{key}} '</h1>
+<h3 class="text-center" *ngIf="result > 1" >{{result}} results</h3>
+<h3 class="text-center" *ngIf="result <= 1" >{{result}} result</h3>
+<br>
+<br>
 <!--<div class="btn-kept" align="center">
   <button class="btn btn-default" type="submit" [routerLink]="['/movie']">GO GO GO</button>
 
@@ -16,9 +19,9 @@
 
 </div>-->
 
-<div *ngIf="movie?.length == 0">
+<!--<div *ngIf="movie?.length == 0">
   Not Found
-</div>
+</div>-->
 <div *ngFor="let m of movie" class="hi">
   <div class="col-md-3 col-sm-6" id="c-row">
     <a routerLink="/movie/{{m.mid}}"> 

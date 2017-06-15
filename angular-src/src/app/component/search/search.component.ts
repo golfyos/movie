@@ -17,6 +17,7 @@ export class SearchComponent implements OnInit {
 
   key: String
   movie: Object;
+  result: Number;
   ngOnInit() {
     this.dataService.getProfile().subscribe(profile => {
       this.user = profile.user;
@@ -43,6 +44,7 @@ export class SearchComponent implements OnInit {
           if (data.success) {
             // console.log(data.data);
             this.movie = data.data;
+            this.result = data.data.length;
           }
       });
     });
