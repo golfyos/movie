@@ -33,6 +33,8 @@ export class MovieComponent implements OnInit {
   ngOnInit() {
     this.dataService.getProfile().subscribe(profile => {
       this.user = profile.user;
+      this.fname = profile.user.firstname;
+      this.lname = profile.user.lastname;
       this.dataService.user = this.user;
       if (!this.dataService.validateAdmin(this.user)) {
         this.dataService.grant = false;
@@ -78,8 +80,9 @@ export class MovieComponent implements OnInit {
 
   }
 
-  onCommentSubmit(name) {
+  onCommentSubmit() {
     let u = this.user;
+    
     const d = {
       mid: this.mid,
       name: this.fname + "  " + this.lname,
@@ -91,6 +94,7 @@ export class MovieComponent implements OnInit {
           this.dataService.getMovieById(this.mid).subscribe(dataJson => {
             if (dataJson.success) {
               this.movieData = dataJson.data;
+              this.comment = "";
             }
           });
     });
