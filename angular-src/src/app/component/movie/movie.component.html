@@ -1,4 +1,5 @@
-<h1 class="text-center" id="mov-head">{{movieData?.name}}</h1>
+<div class="all">
+  <h1 class="text-center" id="mov-head">{{movieData?.name}}</h1>
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-3">
@@ -32,6 +33,7 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-11">
+    <img style="float:left" width="50" height="50" src="http://www.freeiconspng.com/uploads/book-icon--awesome-book-icon--softiconsm-15.png"/>
     <h2 id="hdline">STORYLINE</h2>
     <p id="linetxt">{{movieData?.description}}</p>
   </div>
@@ -39,6 +41,7 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-11">
+    <img style="float:left" width="50" height="50" src="https://cdn1.iconfinder.com/data/icons/pretty-office-part-13-reflection-style/512/users.png"/>
     <h2 id="hdline">CASTS</h2>
     <p *ngFor="let ca of movieData?.cast" id="linetxt">{{ca}} </p>
   </div>
@@ -46,8 +49,8 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-11">
+    <img style="float:left" width="50" height="50" src="http://saniflo-engineers-london.co.uk/wp-content/uploads/2014/01/Reviews.png"/>
     <h2 id="hdline">REVIEW</h2>
-    <h3 id="scdline">Don't forget to login in order to write down the review!</h3>
     <div class="forReview">
     <form (submit)="onCommentSubmit()">
       <input *ngIf="user" type="text" placeholder="Write down your review here" [(ngModel)]="comment" name="comment"><br>
@@ -88,3 +91,5 @@
 <!--<iframe [src]="videoUrl" width="560" height="315" allowfullscreen></iframe>-->
 
 
+
+</div>

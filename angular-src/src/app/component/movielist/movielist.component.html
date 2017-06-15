@@ -1,5 +1,6 @@
 <!--<h1 class="text-center" id="head">MOVIE LIST PAGE</h1>-->
-<h1 class="text-center" id="headtwo">{{cate}} Movies</h1>
+<div class="all">
+  <h1 class="text-center" id="headtwo">{{cate}} Movies</h1>
 <div *ngFor="let m of movie" class="hi">
   <div class="col-md-3 col-sm-6" id="c-row">
     <a routerLink="/movie/{{m.mid}}"> 
@@ -7,4 +8,5 @@
         </a>
     <div class="text-center" id="text-label">{{m.name}}</div>
   </div>
+</div>
 </div>

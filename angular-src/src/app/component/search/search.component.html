@@ -1,9 +1,10 @@
-<h1 class="text-center">Your Searched for  ' {{key}} '</h1>
-<h3 class="text-center" *ngIf="result > 1" >{{result}} results</h3>
-<h3 class="text-center" *ngIf="result <= 1" >{{result}} result</h3>
-<br>
-<br>
-<!--<div class="btn-kept" align="center">
+<div class="all">
+  <h1 class="text-center">Your Searched for ' {{key}} '</h1>
+  <h3 class="text-center" *ngIf="result > 1">{{result}} results</h3>
+  <h3 class="text-center" *ngIf="result <= 1">{{result}} result</h3>
+  <br>
+  <br>
+  <!--<div class="btn-kept" align="center">
   <button class="btn btn-default" type="submit" [routerLink]="['/movie']">GO GO GO</button>
 
   <div *ngFor="let m of movie; let i = index" [attr.data-index]="i">
@@ -19,14 +20,15 @@
 
 </div>-->
 
-<!--<div *ngIf="movie?.length == 0">
+  <!--<div *ngIf="movie?.length == 0">
   Not Found
 </div>-->
-<div *ngFor="let m of movie" class="hi">
-  <div class="col-md-3 col-sm-6" id="c-row">
-    <a routerLink="/movie/{{m.mid}}"> 
+  <div *ngFor="let m of movie" class="hi">
+    <div class="col-md-3 col-sm-6" id="c-row">
+      <a routerLink="/movie/{{m.mid}}"> 
         <img id="image" src="{{m.poster}}" alt="poster" class="image" style="width:100%">
         </a>
-    <div class="text-center" id="text-label">{{m.name}}</div>
+      <div class="text-center" id="text-label">{{m.name}}</div>
+    </div>
   </div>
 </div>
