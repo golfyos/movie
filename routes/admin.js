@@ -5,7 +5,7 @@ const Movie      = require("../models/data");
 const config    = require("../config/database");
 
 router.get("/",(req,res)=>{
-    console.log("this is /admin");
+    // console.log("this is /admin");
     //res.send("data");
 });
 

@@ -31,6 +31,17 @@ export class DeletemovieComponent implements OnInit {
     });
   }
   
+  name: String
+  setName(){
+    this.dataService.getMovieById(this.mid).subscribe(data => {
+        // console.log(data.success);
+          if (data.success) {
+            // console.log(data.data);
+            this.name = data.data.name;
+          }
+      });
+  }
+
   onDeleteSubmit(){
     const id = {
       id: this.mid
