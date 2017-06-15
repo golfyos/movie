@@ -3,12 +3,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { DomSanitizer, SafeResourceUrl, } from '@angular/platform-browser';
 
-
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css']
 })
+
+
+
 export class MovieComponent implements OnInit {
 
   constructor(
@@ -85,7 +87,11 @@ export class MovieComponent implements OnInit {
 
     this.dataService.addReview(d).subscribe(resJson => {
       console.log(resJson.success);
-      this.router.navigate(['/movie/' + this.mid]);
+          this.dataService.getMovieById(this.mid).subscribe(dataJson => {
+            if (dataJson.success) {
+              this.movieData = dataJson.data;
+            }
+          });
     });
   }
 
