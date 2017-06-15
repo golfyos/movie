@@ -36,6 +36,7 @@ export class MovieComponent implements OnInit {
       this.fname = profile.user.firstname;
       this.lname = profile.user.lastname;
       this.dataService.user = this.user;
+      console.log(this.user);
       if (!this.dataService.validateAdmin(this.user)) {
         this.dataService.grant = false;
       } else this.dataService.grant = true;
