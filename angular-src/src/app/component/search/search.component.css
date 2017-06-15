@@ -44,6 +44,12 @@
       /*margin-bottom: 10%;*/
 }
 
+#searchKey{
+    font-family: 'Droid Sans',sans-serif;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
 #c-row{
      padding-bottom: 15px;
     font-family: 'Oswald',sans-serif;
