@@ -67,16 +67,12 @@ router.post("/addreview",(req,res)=>{   /*  /data/addreview  */
 });
 
 router.post("/search",(req,res)=>{
-    // console.log(req.body.key);
-    // res.json({gg:"gg"})
     let key = req.body.key;
-    // console.log(key);
     Movie.find({name: { "$regex": key, "$options": "i" }},(err,data)=>{
         if(err) console.log(err)
         else{
             if(data)
                 res.json({success:true,data:data});
-            // console.log(data);
         }
     })
 });
@@ -121,14 +117,11 @@ router.post("/secret",(req,res)=>{
                 let uri = "http://www.omdbapi.com/?i="+sp[0]+"&plot=full&apikey=6f24724e";
 
                 request(uri,(err,response,body)=>{
-
-                    // alldata.push(JSON.parse(body));
                     let temp = JSON.parse(body);
                     // if(i==line.length-1) {
                         // res.json(alldata);
                         let cast = temp.Actors 
                         let cate = temp.Genre
-                        // cast = cast.replace(" ","");
                         let castArr = cast.split(",");
                         cate = cate.replace(/ /g,"");
                         let cateArr = cate.split(",");
@@ -163,10 +156,6 @@ router.post("/secret",(req,res)=>{
                 })
             }
                 
-                // resolve(alldata)
-            // })
-                // .then(alldata=>res.json(alldata));
-            
         });
 
     }else{

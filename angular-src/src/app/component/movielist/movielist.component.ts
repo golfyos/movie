@@ -39,15 +39,12 @@ export class MovielistComponent implements OnInit {
     });
     this.route.params.subscribe(params => {
       this.cate = params["category"];
-      // console.log(params["id"]);
     });
-    // console.log(this.cate);
     if (this.cate == "all") {
       this.dataService.getAllMovie().subscribe(data => {
         if (data) {
           this.movie = data;
           this.count = Object.keys(this.movie).length;
-          // console.log(data)
         }
       });
     }
@@ -55,18 +52,15 @@ export class MovielistComponent implements OnInit {
       this.dataService.sortMovie(this.cate).subscribe(data => {
         if (data) {
           this.movie = data.data;
-          // console.log(data)
           this.cate = this.cate=="latest"?"Latest":"Trend";
         }
       });
     }
     else {
-      // console.log(this.cate);
       this.dataService.category = this.cate;
       this.dataService.getCategoryMovie(this.cate).subscribe(data => {
         if (data) {
           this.movie = data.data;
-          // console.log(data)
         }
       });
     }

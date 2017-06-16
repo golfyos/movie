@@ -51,19 +51,10 @@ export class MovieComponent implements OnInit {
 
     this.dataService.getMovieById(this.mid).subscribe(dataJson => {
       if (dataJson.success) {
-        // console.log(dataJson.data);
         this.movieData = dataJson.data;
-        // this.changeUrl(dataJson.data.trailer);
-
         let url = "https://www.youtube.com/embed/" + dataJson.data.trailer;
         this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
         console.log(this.videoUrl);
-
-        // console.log(dataJson.data.name);
-        // this.movie = data.data; 
-        // this.url = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/"+ dataJson.data.trailer);
-        // console.log(this.url);
-
       }
     });
 
@@ -105,7 +96,6 @@ export class MovieComponent implements OnInit {
     console.log(trailer);
     let url = "https://www.youtube.com/embed/" + trailer;
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-    // this.page = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     console.log(this.videoUrl);
   }
 

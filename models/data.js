@@ -24,5 +24,4 @@ const Movie = mongoose.Schema({
         },
     }]
 });
-// Movie.index({name: 'text'});
 module.exports = mongoose.model('Movie_detail',Movie);

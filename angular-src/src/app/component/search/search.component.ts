@@ -31,21 +31,16 @@ export class SearchComponent implements OnInit {
     });
 
     this.route.params.subscribe(params => {
-      
-      // this.key = params["key"];
-      // let temp = params["key"];
+
       let temp = params["key"].split("+");
       let strJoin = temp.join(" ");
       this.key = strJoin;
       const word = {
         key:this.key
       }
-      // console.log(word);
-      // console.log(params["id"]);
+
       this.dataService.searchKeyWord(word).subscribe(data => {
-        // console.log(data.success);
           if (data.success) {
-            // console.log(data.data);
             this.movie = data.data;
             this.result = data.data.length;
           }

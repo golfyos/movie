@@ -735,9 +735,7 @@ var MovieComponent = (function () {
         });
         this.dataService.getMovieById(this.mid).subscribe(function (dataJson) {
             if (dataJson.success) {
-                // console.log(dataJson.data);
                 _this.movieData = dataJson.data;
-                // this.changeUrl(dataJson.data.trailer);
                 var url = "https://www.youtube.com/embed/" + dataJson.data.trailer;
                 _this.videoUrl = _this.sanitizer.bypassSecurityTrustResourceUrl(url);
                 console.log(_this.videoUrl);
@@ -778,7 +776,6 @@ var MovieComponent = (function () {
         console.log(trailer);
         var url = "https://www.youtube.com/embed/" + trailer;
         this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-        // this.page = this.sanitizer.bypassSecurityTrustResourceUrl(url);
         console.log(this.videoUrl);
     };
     MovieComponent = __decorate([
@@ -841,9 +838,7 @@ var MovielistComponent = (function () {
         });
         this.route.params.subscribe(function (params) {
             _this.cate = params["category"];
-            // console.log(params["id"]);
         });
-        // console.log(this.cate);
         if (this.cate == "all") {
             this.dataService.getAllMovie().subscribe(function (data) {
                 if (data) {
@@ -856,13 +851,11 @@ var MovielistComponent = (function () {
             this.dataService.sortMovie(this.cate).subscribe(function (data) {
                 if (data) {
                     _this.movie = data.data;
-                    // console.log(data)
                     _this.cate = _this.cate == "latest" ? "Latest" : "Trend";
                 }
             });
         }
         else {
-            // console.log(this.cate);
             this.dataService.category = this.cate;
             this.dataService.getCategoryMovie(this.cate).subscribe(function (data) {
                 if (data) {
@@ -1086,20 +1079,14 @@ var SearchComponent = (function () {
             return false;
         });
         this.route.params.subscribe(function (params) {
-            // this.key = params["key"];
-            // let temp = params["key"];
             var temp = params["key"].split("+");
             var strJoin = temp.join(" ");
             _this.key = strJoin;
             var word = {
                 key: _this.key
             };
-            // console.log(word);
-            // console.log(params["id"]);
             _this.dataService.searchKeyWord(word).subscribe(function (data) {
-                // console.log(data.success);
                 if (data.success) {
-                    // console.log(data.data);
                     _this.movie = data.data;
                     _this.result = data.data.length;
                 }
@@ -1366,7 +1353,7 @@ module.exports = "<div class=\"all\">\r\n  <div class=\"login-header\">\r\n  <h1
 /***/ 696:
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"background-color:gray;margin:5%;border-radius:30px;padding:20px;\" class=\"all\">\r\n  <h1 class=\"text-center\" id=\"mov-head\">{{movieData?.name}}</h1>\r\n<div class=\"row\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-3\">\r\n    <div class=\"text-center\" id=\"rating-label\">\r\n      <img width=\"50\" height=\"50\" src=\"https://cdn0.iconfinder.com/data/icons/IS_Christmas/512/christmas_star.png\"/>\r\n      RATINGS : {{movieData?.rating}}\r\n      <img width=\"50\" height=\"50\" src=\"https://cdn0.iconfinder.com/data/icons/IS_Christmas/512/christmas_star.png\"/>\r\n      </div>\r\n    <img id=\"image\" src=\"{{movieData?.poster}}\"\r\n      alt=\"Avatar\" class=\"image\" style=\"width:100%\">\r\n    <div class=\"text-center\">\r\n      <p id=\"rel-date\">{{movieData?.release_date | date:'dd/MM/yy'}}</p>\r\n      <p id=\"cat\">{{movieData?.category}}</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-7\" id=\"vid\">\r\n    <div>\r\n      <!--<iframe width=\"1020\" height=\"580\" src=\"https://www.youtube.com/embed/zB4I68XVPzQ\" frameborder=\"0\" allowfullscreen></iframe>-->\r\n      <iframe id=\"iFrame1\" width=\"900\" height=\"540\" [src]=\"videoUrl\" frameborder=\"0\" allowfullscreen></iframe>\r\n      <!--<iframe width=\"1020\" height=\"580\" src=\"https://www.youtube.com/embed/{{movieData?.trailer}}\" frameborder=\"0\" allowfullscreen></iframe>-->\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-1\"></div>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-10\"></div>\r\n  <div class=\"col-md-1\"></div>\r\n</div>\r\n<hr>\r\n<div class=\"row\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-11\">\r\n    <img style=\"float:left\" width=\"50\" height=\"50\" src=\"http://www.freeiconspng.com/uploads/book-icon--awesome-book-icon--softiconsm-15.png\"/>\r\n    <h2 id=\"hdline\">STORYLINE</h2>\r\n    <p id=\"linetxt\">{{movieData?.description}}</p>\r\n  </div>\r\n</div><hr>\r\n<div class=\"row\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-11\">\r\n    <img style=\"float:left\" width=\"50\" height=\"50\" src=\"https://cdn1.iconfinder.com/data/icons/pretty-office-part-13-reflection-style/512/users.png\"/>\r\n    <h2 id=\"hdline\">CASTS</h2>\r\n    <p *ngFor=\"let ca of movieData?.cast\" id=\"linetxt\">{{ca}} </p>\r\n  </div>\r\n</div><hr>\r\n<div class=\"row\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-11\">\r\n    <img style=\"float:left\" width=\"50\" height=\"50\" src=\"http://saniflo-engineers-london.co.uk/wp-content/uploads/2014/01/Reviews.png\"/>\r\n    <h2 id=\"hdline\">REVIEW</h2>\r\n    <div class=\"forReview\">\r\n    <form (submit)=\"onCommentSubmit()\">\r\n      <input *ngIf=\"user\" type=\"text\" placeholder=\"Write down your review here\" [(ngModel)]=\"comment\" name=\"comment\"><br>\r\n      <input disabled *ngIf=\"!user\" type=\"text\" placeholder=\"Please Login\" name=\"comment\"><br>\r\n      <input [disabled]=\"!user||!comment\" type=\"submit\" class=\"btn btn-default\" value =\"Send\">\r\n      \r\n    </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div *ngFor=\"let re of movieData?.review.slice().reverse()\" class=\"row\" id=\"reviewDiv\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-11\">\r\n    <div class=\"panel panel-default\" id=\"revi\">\r\n      <div class=\"panel-heading\" id=\"rev-name\">{{re.name}} &nbsp; {{re.dated | date:'dd/MM/yy HH:mm:ss'}}</div>\r\n      <div class=\"panel-body\" id=\"rev\">{{re.comment}}</div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!--{{movieData?.name}}<br>\r\n{{movieData?.release_date}}<br>\r\n{{movieData?.category}}<br>\r\n{{movieData?.rating}}<br>\r\n{{movieData?.description}}<br>\r\n<span *ngFor=\"let ca of movieData?.cast\"> {{ca}},  </span><br>\r\n\r\n<div *ngFor=\"let re of movieData?.review\">   \r\n  {{re.name}} &nbsp; {{re.dated}} <br>\r\n  {{re.comment}}\r\n  </div><br>\r\n  <form (submit)=\"onCommentSubmit()\">\r\n    <input type=\"text\" [(ngModel)]=\"comment\" name=\"comment\">\r\n    <input type=\"submit\" class=\"btn btn-primary\" value=\"Send\">\r\n  </form>\r\n<img src=\"{{movieData?.poster}}\" alt=\"poster\"><br>-->\r\n\r\n<!--<iframe src=\"https://www.youtube.com/embed/changeUrl({{movieData?.trailer}})\" width=\"560\" height=\"315\" allowfullscreen></iframe>-->\r\n<!--<iframe [src]=\"videoUrl\" width=\"560\" height=\"315\" allowfullscreen></iframe>-->\r\n\r\n\r\n\r\n</div>"
+module.exports = "<div style=\"background-color:gray;margin:5%;border-radius:30px;padding:20px;\" class=\"all\">\r\n  <h1 class=\"text-center\" id=\"mov-head\">{{movieData?.name}}</h1>\r\n<div class=\"row\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-3\">\r\n    <div class=\"text-center\" id=\"rating-label\">\r\n      <img width=\"50\" height=\"50\" src=\"https://cdn0.iconfinder.com/data/icons/IS_Christmas/512/christmas_star.png\"/>\r\n      RATINGS : {{movieData?.rating}}\r\n      <img width=\"50\" height=\"50\" src=\"https://cdn0.iconfinder.com/data/icons/IS_Christmas/512/christmas_star.png\"/>\r\n      </div>\r\n    <img id=\"image\" src=\"{{movieData?.poster}}\"\r\n      alt=\"Avatar\" class=\"image\" style=\"width:100%\">\r\n    <div class=\"text-center\">\r\n      <p id=\"rel-date\">{{movieData?.release_date | date:'dd/MM/yy'}}</p>\r\n      <p id=\"cat\">{{movieData?.category}}</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-7\" id=\"vid\">\r\n    <div>\r\n      <!--<iframe width=\"1020\" height=\"580\" src=\"https://www.youtube.com/embed/zB4I68XVPzQ\" frameborder=\"0\" allowfullscreen></iframe>-->\r\n      <iframe id=\"iFrame1\" width=\"900\" height=\"540\" [src]=\"videoUrl\" frameborder=\"0\" allowfullscreen></iframe>\r\n      <!--<iframe width=\"1020\" height=\"580\" src=\"https://www.youtube.com/embed/{{movieData?.trailer}}\" frameborder=\"0\" allowfullscreen></iframe>-->\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-1\"></div>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-10\"></div>\r\n  <div class=\"col-md-1\"></div>\r\n</div>\r\n<hr>\r\n<div class=\"row\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-11\">\r\n    <img style=\"float:left\" width=\"50\" height=\"50\" src=\"http://www.freeiconspng.com/uploads/book-icon--awesome-book-icon--softiconsm-15.png\"/>\r\n    <h2 id=\"hdline\">STORYLINE</h2>\r\n    <p id=\"linetxt\">{{movieData?.description}}</p>\r\n  </div>\r\n</div><hr>\r\n<div class=\"row\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-11\">\r\n    <img style=\"float:left\" width=\"50\" height=\"50\" src=\"https://cdn1.iconfinder.com/data/icons/pretty-office-part-13-reflection-style/512/users.png\"/>\r\n    <h2 id=\"hdline\">CASTS</h2>\r\n    <p *ngFor=\"let ca of movieData?.cast\" id=\"linetxt\">{{ca}} </p>\r\n  </div>\r\n</div><hr>\r\n<div class=\"row\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-11\">\r\n    <img style=\"float:left\" width=\"50\" height=\"50\" src=\"http://saniflo-engineers-london.co.uk/wp-content/uploads/2014/01/Reviews.png\"/>\r\n    <h2 id=\"hdline\">REVIEW</h2>\r\n    <div class=\"forReview\">\r\n    <form (submit)=\"onCommentSubmit()\">\r\n      <input *ngIf=\"user\" type=\"text\" placeholder=\"Write down your review here\" [(ngModel)]=\"comment\" name=\"comment\"><br>\r\n      <input disabled *ngIf=\"!user\" type=\"text\" placeholder=\"Please Login\" name=\"comment\"><br>\r\n      <input [disabled]=\"!user||!comment\" type=\"submit\" class=\"btn btn-default\" value =\"Send\">\r\n      \r\n    </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div *ngFor=\"let re of movieData?.review.slice().reverse()\" class=\"row\" id=\"reviewDiv\">\r\n  <div class=\"col-md-1\"></div>\r\n  <div class=\"col-md-11\">\r\n    <div class=\"panel panel-default\" id=\"revi\">\r\n      <div class=\"panel-heading\" id=\"rev-name\">{{re.name}} &nbsp; {{re.dated | date:'dd/MM/yy HH:mm:ss'}}</div>\r\n      <div class=\"panel-body\" id=\"rev\">{{re.comment}}</div>\r\n    </div>\r\n  </div>\r\n</div>\r\n</div>"
 
 /***/ }),
 
@@ -1394,7 +1381,7 @@ module.exports = "<div class=\"all\">\r\n  <div class=\"regis-form\">\r\n  <div 
 /***/ 700:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"all\">\r\n  <h1 class=\"text-center\" id=\"searchKey\">Your Searched for ' {{key}} '</h1>\r\n  <h3 id=\"result\" class=\"text-center\" *ngIf=\"result > 1\">{{result}} results</h3>\r\n  <h3 id=\"result\" class=\"text-center\" *ngIf=\"result <= 1\">{{result}} result</h3>\r\n  <br>\r\n  <br>\r\n  <!--<div class=\"btn-kept\" align=\"center\">\r\n  <button class=\"btn btn-default\" type=\"submit\" [routerLink]=\"['/movie']\">GO GO GO</button>\r\n\r\n  <div *ngFor=\"let m of movie; let i = index\" [attr.data-index]=\"i\">\r\n    <div *ngIf=\"i == 0 || i%4 == 0\" class=\"row\">\r\n      <div *ngIf=\"i == 0 || i%4 !== 0 \" class=\"col-md-3 col-sm-6\" id=\"c-row\">\r\n        <a routerLink=\"/movie/{{m.mid}}\"> \r\n      <img id=\"image\" src=\"{{m.poster}}\" alt=\"poster\">\r\n      </a>\r\n        <div class=\"text-center\" id=\"text-label\">{{m.name}} {{i}}</div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n</div>-->\r\n\r\n  <!--<div *ngIf=\"movie?.length == 0\">\r\n  Not Found\r\n</div>-->\r\n  <div *ngFor=\"let m of movie\" class=\"hi\">\r\n    <div class=\"col-md-3 col-sm-6\" id=\"c-row\">\r\n      <a routerLink=\"/movie/{{m.mid}}\"> \r\n        <img id=\"image\" src=\"{{m.poster}}\" alt=\"poster\" class=\"image\" style=\"width:100%\">\r\n        </a>\r\n      <div class=\"text-center\" id=\"text-label\">{{m.name}}</div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"all\">\r\n  <h1 class=\"text-center\" id=\"searchKey\">Your Searched for ' {{key}} '</h1>\r\n  <h3 id=\"result\" class=\"text-center\" *ngIf=\"result > 1\">{{result}} results</h3>\r\n  <h3 id=\"result\" class=\"text-center\" *ngIf=\"result <= 1\">{{result}} result</h3>\r\n  <br>\r\n  <br>\r\n \r\n  <div *ngFor=\"let m of movie\" class=\"hi\">\r\n    <div class=\"col-md-3 col-sm-6\" id=\"c-row\">\r\n      <a routerLink=\"/movie/{{m.mid}}\"> \r\n        <img id=\"image\" src=\"{{m.poster}}\" alt=\"poster\" class=\"image\" style=\"width:100%\">\r\n        </a>\r\n      <div class=\"text-center\" id=\"text-label\">{{m.name}}</div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
