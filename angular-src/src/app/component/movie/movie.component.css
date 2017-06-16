@@ -97,6 +97,9 @@ input[type=text]{
     margin : 8px, 0;
     padding-left : 3em;
     padding-right : 4em;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
 }
 .item{
     margin: auto;
